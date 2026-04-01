@@ -183,6 +183,40 @@ a[href="/contact/"], a[href="/contact/"] span {
 </style>
 <style>
 .l-footer, #page-footer, footer.l-footer { display: none !important; }
+
+.coin-outline, .coin-flash {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 200vmax;
+  height: 200vmax;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  pointer-events: none;
+}
+.coin-outline {
+  background: url('/wp-content/uploads/2025/07/coin-outline.png') center/cover no-repeat;
+  opacity: 1;
+}
+.coin-flash {
+  background: url('/wp-content/uploads/2025/07/coin-sketch.png') center/cover no-repeat;
+  opacity: 0;
+  animation: coinFlash 8.15s linear infinite;
+}
+@keyframes coinFlash {
+  0% { opacity: 0; transform: translate(-50%, -50%) rotate(0deg); }
+  /* Slow invisible spin between flashes */
+  85% { opacity: 0; transform: translate(-50%, -50%) rotate(25deg); }
+  /* Stop spinning, flash */
+  86% { opacity: 0.4; transform: translate(-50%, -50%) rotate(25deg); }
+  86.5% { opacity: 0.15; transform: translate(-50%, -50%) rotate(25deg); }
+  87% { opacity: 0.35; transform: translate(-50%, -50%) rotate(25deg); }
+  88% { opacity: 0.1; transform: translate(-50%, -50%) rotate(25deg); }
+  89% { opacity: 0; transform: translate(-50%, -50%) rotate(25deg); }
+  /* Stay still after flash, then reset */
+  100% { opacity: 0; transform: translate(-50%, -50%) rotate(25deg); }
+}
+
 </style>
 <style>
 .mycustfancy, .ultimate-typewriter-prefix {
@@ -202,9 +236,23 @@ a[href="/contact/"], a[href="/contact/"] span {
   100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
 }
 </style>
+<style>
+.l-section.full_height { min-height: calc(100vh - 70px) !important; max-height: calc(100vh - 70px) !important; overflow: hidden !important; }
+.daxos-footer { position: fixed !important; bottom: 0 !important; left: 0 !important; right: 0 !important; z-index: 50 !important; }
+</style>
+<style>
+/* Force nav order: Home(3034), Portfolio(5361), Contact(5396), About Us(5360) */
+.w-nav-list.level_1, #menu-main-menu-1, .w-menu .menu { display: flex !important; flex-direction: column !important; }
+.menu-item-3034, li:has(a[href="/"]) { order: 1 !important; }
+.menu-item-5361, li:has(a[href="/portfolio/"]) { order: 2 !important; }
+.menu-item-5396, li:has(a[href="/contact/"]) { order: 3 !important; }
+.menu-item-5360, li:has(a[href="/about/"]) { order: 4 !important; }
+</style>
 </head>
 <body class="home wp-singular page-template-default page page-id-3936 wp-theme-Impreza wp-child-theme-impreza-child-impreza-child l-body Impreza_8.10 us-core_8.10.1 header_hor headerinpos_top state_default wpb-js-composer js-comp-ver-6.9.0 vc_responsive" itemscope itemtype="https://schema.org/WebPage">
 
+<div class="coin-outline"></div>
+<div class="coin-flash"></div>
 <div class="l-canvas type_wide">
 	<header id="page-header" class="l-header pos_static shadow_wide bg_solid id_3032" itemscope itemtype="https://schema.org/WPHeader"><div class="l-subheader at_middle"><div class="l-subheader-h"><div class="l-subheader-cell at_left"></div><div class="l-subheader-cell at_center"></div><div class="l-subheader-cell at_right"><nav class="w-nav type_desktop ush_menu_1 hidden dropdown_none m_align_center m_layout_dropdown" itemscope itemtype="https://schema.org/SiteNavigationElement"><a class="w-nav-control" aria-label="Menu" href="#"><div class="w-nav-icon"><div></div></div></a><ul class="w-nav-list level_1 hide_for_mobiles hover_simple"><li id="menu-item-3034" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item w-nav-item level_1 menu-item-3034"><a class="w-nav-anchor level_1" href="/"><span class="w-nav-title">00 Home</span><span class="w-nav-arrow"></span></a></li><li id="menu-item-5361" class="menu-item menu-item-type-post_type menu-item-object-page w-nav-item level_1 menu-item-5361"><a class="w-nav-anchor level_1" href="/portfolio/"><span class="w-nav-title">03 Portfolio</span><span class="w-nav-arrow"></span></a></li><li id="menu-item-5396" class="menu-item menu-item-type-post_type menu-item-object-page w-nav-item level_1 menu-item-5396"><a class="w-nav-anchor level_1" href="/contact/"><span class="w-nav-title">04 Contact</span><span class="w-nav-arrow"></span></a></li><li id="menu-item-5360" class="menu-item menu-item-type-post_type menu-item-object-page w-nav-item level_1 menu-item-5360"><a class="w-nav-anchor level_1" href="/about/"><span class="w-nav-title">01 About</span><span class="w-nav-arrow"></span></a></li><li class="w-nav-close"></li></ul><div class="w-nav-options hidden" onclick='return {&quot;mobileWidth&quot;:30000,&quot;mobileBehavior&quot;:1}'></div></nav><div class="w-html ush_html_3 daxos-menu"><nav>
     <div class="nav-right">

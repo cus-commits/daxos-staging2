@@ -21,7 +21,7 @@ a { color: #fff; text-decoration: none; }
 .nav-menu.open { display: flex; }
 .nav-menu a { display: block; padding: 18px 32px; font-size: 18px; letter-spacing: 3px; text-transform: uppercase; color: #888; text-decoration: none; transition: color 0.2s; }
 .nav-menu a:hover, .nav-menu a.active { color: #fff; }
-.nav-close { position: absolute; top: 28px; right: 28px; font-size: 28px; cursor: pointer; color: #666; }
+.nav-close { position: absolute; top: 28px; right: 48px; font-size: 28px; cursor: pointer; color: #666; }
 
 .main { flex: 1; padding: 48px 48px 80px; max-width: 900px; }
 .page-title { font-family: "Source Code Pro", monospace; font-size: 42px; font-weight: 600; letter-spacing: 2px; margin-bottom: 12px; }
@@ -41,7 +41,8 @@ a { color: #fff; text-decoration: none; }
 .daxos-footer-copy { color: #333; }
 
 @media (max-width: 768px) {
-  .nav { padding: 16px 24px; }
+  .nav { padding: 16px 20px; }
+  .nav-close { top: 16px; right: 20px; }
   .nav-logo { font-size: 13px; padding: 6px 16px; }
   .main { padding: 40px 24px; }
   .page-title { font-size: 28px; }

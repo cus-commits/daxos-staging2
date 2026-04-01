@@ -19,7 +19,7 @@ a { color: #fff; text-decoration: none; }
 .nav-menu.open { display: flex; }
 .nav-menu a { display: block; padding: 18px 32px; font-size: 18px; letter-spacing: 3px; text-transform: uppercase; color: #888; text-decoration: none; transition: color 0.2s; }
 .nav-menu a:hover, .nav-menu a.active { color: #fff; }
-.nav-close { position: absolute; top: 28px; right: 28px; font-size: 28px; cursor: pointer; color: #666; }
+.nav-close { position: absolute; top: 28px; right: 48px; font-size: 28px; cursor: pointer; color: #666; }
 
 .main { flex: 1; padding: 48px; }
 .page-title { font-family: "Source Code Pro", monospace; font-size: 42px; font-weight: 600; letter-spacing: 2px; margin-bottom: 12px; }
@@ -66,14 +66,39 @@ a { color: #fff; text-decoration: none; }
 .daxos-footer-links .dot { color: #333; }
 .daxos-footer-copy { color: #333; }
 
-@media (max-width: 1024px) { .portfolio-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 600px) {
-  .nav { padding: 16px 24px; }
-  .main { padding: 32px 24px; }
-  .page-title { font-size: 28px; }
-  .portfolio-grid { grid-template-columns: 1fr; }
-  .daxos-footer { padding: 16px 24px; }
+@media (max-width: 1200px) {
+  .nav { padding: 16px 20px; }
+  .nav-close { top: 16px; right: 20px; }
+  .main { padding: 24px 20px; }
+  .page-title { font-size: 24px; }
+  .daxos-footer { padding: 16px 20px; }
+  .portfolio-grid {
+    grid-template-columns: repeat(2, minmax(0, 150px)) !important;
+    gap: 8px !important;
+    margin: 0 !important;
+    justify-content: start !important;
+  }
+  .portfolio-item {
+    padding: 10px !important;
+    min-height: auto !important;
+    aspect-ratio: 1 !important;
+    width: 150px !important;
+    height: 150px !important;
+  }
+  .portfolio-item img {
+    max-width: 100px !important;
+    max-height: 100px !important;
+    object-fit: contain !important;
+  }
 }
+</style>
+<style>
+/* Force nav order: Home(3034), Portfolio(5361), Contact(5396), About Us(5360) */
+.w-nav-list.level_1, #menu-main-menu-1, .w-menu .menu { display: flex !important; flex-direction: column !important; }
+.menu-item-3034, li:has(a[href="/"]) { order: 1 !important; }
+.menu-item-5361, li:has(a[href="/portfolio/"]) { order: 2 !important; }
+.menu-item-5396, li:has(a[href="/contact/"]) { order: 3 !important; }
+.menu-item-5360, li:has(a[href="/about/"]) { order: 4 !important; }
 </style>
 </head>
 <body>
@@ -87,7 +112,7 @@ a { color: #fff; text-decoration: none; }
 <div class="nav-menu">
   <div class="nav-close" onclick="this.parentElement.classList.remove('open')">&times;</div>
   <a href="/">Home</a>
-  <a href="/portfolio/" class="active">Portfolio</a>
+  <a href="/portfolio/">Portfolio</a>
   <a href="/contact/">Contact</a>
   <a href="/about/">About Us</a>
 </div>
