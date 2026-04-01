@@ -243,8 +243,24 @@ a[href="/contact/"], a[href="/contact/"] span {
 @media (max-width: 768px) {
   .home-textblock { position: static !important; top: auto !important; }
   #fancytextwrapper { padding: 0 20px !important; }
-  .l-section.full_height { display: flex !important; align-items: center !important; justify-content: center !important; }
-  .l-section.full_height > .l-section-h { display: flex !important; align-items: center !important; justify-content: center !important; width: 100% !important; }
+  /* Force vertical + horizontal centering through entire WordPress wrapper chain */
+  .l-section.full_height,
+  .l-section.full_height > .l-section-h,
+  .l-section.full_height .g-cols,
+  .l-section.full_height .wpb_column,
+  .l-section.full_height .vc_column-inner,
+  .l-section.full_height .g-cols.rb-inner-col {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    min-height: inherit !important;
+  }
+  /* Remove the border/padding box on mobile */
+  #page-content .l-section-h.i-cf .wpb_wrapper {
+    border: none !important;
+    padding: 0 !important;
+  }
   .rb-home-tagline { text-align: center !important; }
   .mycustfancy, .ultimate-typewriter-prefix { text-align: center !important; display: block !important; }
   .daxos-footer { padding: 12px 20px !important; font-size: 11px !important; }
