@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | Daxos|Capital</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap');
+html, body { height: 100%; }
+body { background: #000; color: #fff; font-family: "Roboto Mono", monospace; display: flex; flex-direction: column; min-height: 100vh; }
+a { color: #fff; text-decoration: none; }
+
+.nav { display: flex; justify-content: space-between; align-items: center; padding: 28px 48px; border-bottom: 1px solid #1a1a1a; }
+.nav-logo { border: 1.5px solid #fff; padding: 8px 20px; font-size: 15px; letter-spacing: 1px; }
+.nav-burger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; }
+.nav-burger div { width: 24px; height: 1.5px; background: #fff; }
+
+.nav-menu { display: none; position: fixed; inset: 0; background: #000; z-index: 100; flex-direction: column; align-items: center; justify-content: center; }
+.nav-menu.open { display: flex; }
+.nav-menu a { display: block; padding: 18px 32px; font-size: 18px; letter-spacing: 3px; text-transform: uppercase; color: #888; text-decoration: none; transition: color 0.2s; }
+.nav-menu a:hover, .nav-menu a.active { color: #fff; }
+.nav-close { position: absolute; top: 28px; right: 28px; font-size: 28px; cursor: pointer; color: #666; }
+
+.main { flex: 1; padding: 48px 48px 80px; max-width: 900px; }
+.page-title { font-family: "Source Code Pro", monospace; font-size: 42px; font-weight: 600; letter-spacing: 2px; margin-bottom: 12px; }
+.title-line { width: 48px; height: 2px; background: #4466ff; margin-bottom: 48px; }
+
+.typed-paragraph { font-size: 22px; color: #ddd; line-height: 2.0; letter-spacing: 0.01em; margin-bottom: 28px; font-family: "Source Code Pro", monospace; font-weight: 400; }
+.typed-paragraph .word { opacity: 0; display: inline; transition: opacity 0.3s ease; }
+.typed-paragraph .word.visible { opacity: 1; }
+.typed-cursor { display: inline-block; width: 2px; height: 1.1em; background: #4466ff; vertical-align: text-bottom; animation: blink 0.8s infinite; margin-left: 2px; }
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
+
+.daxos-footer { padding: 20px 48px; border-top: 1px solid #1a1a1a; display: flex; justify-content: center; align-items: center; font-size: 13px; color: #444; letter-spacing: 1px; gap: 16px; flex-wrap: wrap; background: #000; }
+.daxos-footer-links { display: flex; gap: 8px; align-items: center; }
+.daxos-footer-links a { color: #555; text-decoration: none; transition: color 0.2s; }
+.daxos-footer-links a:hover { color: #fff; }
+.daxos-footer-links .dot { color: #333; }
+.daxos-footer-copy { color: #333; }
+
+@media (max-width: 768px) {
+  .nav { padding: 16px 24px; }
+  .nav-logo { font-size: 13px; padding: 6px 16px; }
+  .main { padding: 40px 24px; }
+  .page-title { font-size: 28px; }
+  .typed-paragraph { font-size: 16px; }
+  .daxos-footer { padding: 16px 24px; }
+}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="/" class="nav-logo">daxos.capital</a>
+  <div class="nav-burger" onclick="document.querySelector('.nav-menu').classList.toggle('open')">
+    <div></div><div></div><div></div>
+  </div>
+</div>
+<div class="nav-menu">
+  <div class="nav-close" onclick="this.parentElement.classList.remove('open')">&times;</div>
+  <a href="/">Home</a>
+  <a href="/portfolio/">Portfolio</a>
+  <a href="/contact/">Contact</a>
+  <a href="/about/" class="active">About Us</a>
+</div>
+
+<div class="main">
+  <div class="page-title">ABOUT US</div>
+  <div class="title-line"></div>
+  <div class="typed-paragraph" id="p0"></div>
+  <div class="typed-paragraph" id="p1"></div>
+  <div class="typed-paragraph" id="p2"></div>
+  <div class="typed-paragraph" id="p3"></div>
+</div>
+
+<div class="daxos-footer">
+  <div class="daxos-footer-links">
+    <a href="/">Home</a><span class="dot">&middot;</span>
+    <a href="/portfolio/">Portfolio</a><span class="dot">&middot;</span>
+    <a href="/contact/">Contact</a><span class="dot">&middot;</span>
+    <a href="/about/">About Us</a>
+  </div>
+  <span class="daxos-footer-copy">&copy; 2026 daxos.capital</span>
+</div>
+
+<script>
+(function() {
+  var paragraphs = [
+    { id: 'p0', text: "We\u2019re crypto natives with roots in trading, finance, tech, and poker." },
+    { id: 'p1', text: 'Daxos Capital was founded sourcing investments in the digital asset space. Now we are industry agnostic.' },
+    { id: 'p2', text: "We don\u2019t have LPs. We invest our money." },
+    { id: 'p3', text: 'We focus on infrastructure: exchanges, marketplaces, and the foundational platforms powering how value moves. We avoid derivatives and copycats.' }
+  ];
+
+  var wordDelay = 80;
+  var paragraphGap = 1200;
+
+  function typeParagraph(paraObj, callback) {
+    var el = document.getElementById(paraObj.id);
+    var words = paraObj.text.split(' ');
+    
+    // Pre-render all words as hidden spans + cursor
+    el.innerHTML = words.map(function(w, i) {
+      return '<span class="word" data-i="' + i + '">' + w + ' </span>';
+    }).join('') + '<span class="typed-cursor"></span>';
+
+    var i = 0;
+    function showNext() {
+      if (i >= words.length) {
+        // Remove cursor from this paragraph
+        var cursor = el.querySelector('.typed-cursor');
+        if (cursor) cursor.remove();
+        if (callback) setTimeout(callback, paragraphGap);
+        return;
+      }
+      var span = el.querySelector('[data-i="' + i + '"]');
+      if (span) span.classList.add('visible');
+      i++;
+      setTimeout(showNext, wordDelay);
+    }
+    showNext();
+  }
+
+  // Chain paragraphs: type p1, wait, type p2, wait, type p3
+  setTimeout(function() {
+    typeParagraph(paragraphs[0], function() {
+      typeParagraph(paragraphs[1], function() {
+        typeParagraph(paragraphs[2], function() {
+          typeParagraph(paragraphs[3], function() {});
+        });
+      });
+    });
+  }, 600);
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,455 @@
+
+@media (min-width: 1281px) {
+    :root {
+        --header-height: 50px !important;
+    }
+
+    .admin-bar .l-header.pos_fixed:not(.sticky_auto_hide)~.l-main .l-section.full_height:not(:first-of-type) {
+        min-height: calc(80vh - var(--header-sticky-height) - 32px) !important;
+    }
+
+    div#uvc-type-wrap-8144 {
+    text-align: center !important;
+}
+
+    .home header#page-header {
+        padding-top: 50px;
+        height: 100vh;
+        padding-bottom: 0 !important;
+    }
+
+
+    #fancy-text {
+        position: absolute;
+        top: 0px;
+
+    }
+
+    #uvc-type-wrap-2296 {
+        max-width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
+
+}
+
+
+@media only screen and (max-width: 1365px) {
+    div.daxos-menu-sidebar {
+  
+    padding: 70px 0 0 30px;
+ 
+}
+
+@media only screen and (max-width: 1023px) {
+
+    .get-in-touch-flywheel-section .w-btn {
+        margin: 20px 0 !important;
+    }
+
+    .get-in-touch-flywheel-section .scroll-arrow {
+        margin-top: 80px;
+    }
+
+    .l-main .get-in-touch-flywheel-section {
+        min-height: 80vh;
+    }
+    div.daxos-menu-sidebar {
+  
+    padding: 15px 0 0 15px;
+
+}
+}
+
+@media only screen and (max-width: 992px) {
+    .page-id-2991 h2 {
+        font-size: 90px;
+    }
+
+    .us_custom_6f9901f4 {
+        padding-bottom: 30 !important;
+    }
+
+    section#daxos-inspiration,
+    section#daxos-contact {
+        padding-top: 50;
+    }
+
+    section#daxos-team .us_custom_6f9901f4 {
+        padding-top: 50 !important;
+    }
+
+    section.flywheel-custom-image-section {
+        padding-top: 60px !important;
+    }
+
+    .services-part1 .wpb_text_column:first-child {
+        margin: 40px 0 !important;
+    }
+
+    .custom-section {
+        padding: 40px 20px !important;
+    }
+
+    .custom-we-provide-section h2 {
+        margin-bottom: 80px;
+    }
+
+    .custom-portfolio-section h2 {
+        margin-bottom: 40px;
+    }
+
+    .custom-portfolio-section .cols_4 {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+
+    .custom-portfolio-section .wpb_column .w-image {
+        display: -ms-grid;
+        display: grid;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    .custom-we-provide-section .g-cols.cols_2 {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        padding-bottom: 15px !important;
+    }
+
+    .custom-we-provide-section .g-cols.cols_2 .w-image {
+        margin-right: 1rem;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+div.our-team-info .team-wrapper{
+
+    padding: 30px;
+ 
+}
+}
+
+@media only screen and (max-width: 768px) {
+    .page-id-3457 .flywheel-custom-image-section h1 {
+        font-size: 40px !important;
+    }
+
+    .home #page-footer .l-section.height_medium {
+        /* position: absolute;
+        bottom: 0; */
+    }
+
+    .our-team-info .post {
+        width: 100%;
+    }
+
+    .team-description .post {
+        display: block;
+        margin-top: 210px;
+    }
+
+    .team-description .post-content {
+        min-width: 100%;
+    }
+
+    .fsp-close {
+        top: 15px !important;
+        right: 15px !important;
+    }
+
+    .fsp-content {
+        padding: 10px !important;
+    }
+
+
+
+    #uvc-type-wrap-4789 .mycustfancy,
+    .rb-home-tagline {
+        line-height: 1.5 !important;
+    }
+
+    header#page-header {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .header_hor .l-subheader-cell.at_right .w-nav:last-child .w-nav-control {
+        margin-top: 0;
+    }
+
+    .custom-row-even .wpb_column.vc_column_container:first-child {
+        order: 2;
+    }
+
+    .l-main .get-in-touch-flywheel-section {
+        min-height: 70vh;
+    }
+
+    .get-in-touch-flywheel-section .scroll-arrow {
+        margin-top: 60px;
+    }
+
+    .custom-portfolio-section .cols_4 {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .flywheel-custom-menu .g-cols.cols_5 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .flywheel-custom-image-section p,
+    .get-in-touch-flywheel-section p,
+    .services-part1 p {
+        font-size: 24px !important;
+    }
+
+    .custom-we-provide-section h2 {
+        font-size: 24px !important;
+    }
+
+    header#page-header.sticky {
+        padding-top: 10px !important;
+        background: #fff;
+    }
+
+    .l-footer {
+        padding-top: 20px !important;
+    }
+    .home .us_custom_c1e8dcb4 {
+    padding-bottom: 60px!important;
+}
+
+    .l-header.bg_transparent:not(.sticky) .l-subheader {
+        background: none !important;
+    }
+
+    header#page-header.sticky {
+        padding-top: 10px !important;
+        background: #fff !important;
+        padding-bottom: 10px !important;
+    }
+
+    .ush_menu_1 .w-nav-icon {
+        top: 5px;
+    }
+
+    body.home section.custom-contact-wrapper::before {
+        top: -152px !important;
+    }
+}
+
+@media only screen and (max-width:767px) {
+    
+        body h1.rb-home-exos,div h1.entry-title,div.daxos-menu-sidebar .menu li a  {
+        font-size: 25px ;
+    }
+
+
+.home .l-section.full_height {
+    min-height: 60vh;
+}
+section#fancy-text{
+    height: 70vh;
+}
+div.daxos-menu-sidebar .menu li a {
+ 
+    line-height: 1em;
+
+
+}
+    .l-subheader,
+    .l-section {
+        padding-left: 0.8rem;
+        padding-right: 0.8rem;
+    }
+
+    .page-id-2991 h2 {
+        font-size: 70px;
+    }
+
+    section#daxos-inspiration,
+    section#daxos-contact {
+        padding-top: 30;
+    }
+body .w-nav a.w-nav-control.active+ul .menu-item {
+   
+    margin-left: 0% !important;
+}
+    section#daxos-team .us_custom_6f9901f4 {
+        padding-top: 30 !important;
+    }
+
+    header#page-header {
+        padding-top: 15px !important;
+    }
+
+    .page.page-id-2991 h2 {
+        font-size: 30px;
+    }
+
+    .team-description .post {
+        flex-direction: column;
+    }
+
+    div.our-team-info .post {
+        width: 100%;
+        float: none;
+    }
+
+    body:not(.home) #page-content .our-team {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .container-team .our-team-info .post .info-wrapper {
+        border: 1px solid #000 !important;
+    }
+
+    .home #page-content>section.our-inspiration {
+        /* margin-bottom: 120px; */
+    }
+
+    .home #page-content>section#daxos-contact {
+        /*padding-bottom: 0;*/
+        /*margin-top: 0;*/
+        /*padding-top: 0;*/
+        /*top: -50px;*/
+        /*position: relative;*/
+    }
+
+    body.home .custom-contact-wrapper .w-iconbox.custom-contact-box {
+        top: -40px;
+    }
+
+    body.home #page-content>section#daxos-contact {
+        /*margin-top: 5.5rem;*/
+    }
+    footer#page-footer.l-footer:before {
+
+    padding: 60px;
+ 
+    top: -140px;
+}
+}
+
+@media only screen and (max-width: 575px) {
+    .flywheel-custom-menu a {
+        font-size: 16px;
+    }
+
+    .services-part1 .custom-section {
+        padding: 20px 20px !important;
+    }
+
+    .custom-section {
+        padding: 30px 25px !important;
+    }
+
+    .custom-we-provide-section .custom-section {
+        padding: 0 !important;
+    }
+
+    .page-id-2991 h2 {
+        font-size: 40px;
+    }
+
+    .page-id-2991 h2 {
+        font-size: 60px;
+    }
+
+
+    #page-content:not(.home #page-content) {
+        padding-top: 0px !important;
+    }
+
+    .page #page-content .container-team {
+        /*padding-top: 50px !important;*/
+    }
+}
+
+@media only screen and (max-width: 479px) {
+
+    .page-id-3457 .flywheel-custom-image-section h1 {
+        font-size: 30px !important;
+    }
+
+    .get-in-touch-flywheel-section .scroll-arrow {
+        margin-top: 50px;
+    }
+
+    .custom-section {
+        padding: 25px !important;
+    }
+
+    .services-part1 .custom-section {
+        padding: 0 !important;
+    }
+
+    .custom-we-provide-section h2 {
+        margin-bottom: 60px;
+    }
+
+    .custom-portfolio-section h2 {
+        margin-bottom: 30px;
+    }
+
+    .flywheel-custom-image-section p,
+    .get-in-touch-flywheel-section p,
+    .services-part1 p {
+        font-size: 20px !important;
+    }
+
+    .flywheel-custom-menu a {
+        font-size: 16px;
+    }
+
+    .flywheel-custom-menu .w-btn-wrapper {
+        text-align: center;
+        margin: 0;
+    }
+
+    .flywheel-custom-menu .wpb_column {
+        line-height: 0;
+    }
+
+    .custom-portfolio-section .cols_4 {
+        grid-template-columns: repeat(1, 1fr) !important;
+    }
+
+    .custom-contact-section .w-btn {
+        font-size: 16px;
+        width: 100%;
+    }
+
+    body .us_custom_b70b4e79 {
+        padding-left: .8rem !important;
+    }
+
+    section#fancy-text span.ultimate-typed-main{
+        font-size: 30px !important;
+    }
+
+    .page-id-2991 h2 {
+        font-size: 40px;
+    }
+
+    .team-description .entry-content {
+        font-size: 20px;
+    }
+
+    .fsp-close {
+        font-size: 40px !Important;
+        height: 40px !important;
+        line-height: 20px;
+        width: 40px;
+    }
+
+    .header_hor .l-subheader-cell.at_right>* {
+        margin-left: 0;
+    }
+
+   
+}

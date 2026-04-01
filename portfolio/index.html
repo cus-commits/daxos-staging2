@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio | Daxos|Capital</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap');
+body { background: #000; color: #fff; font-family: "Roboto Mono", monospace; min-height: 100vh; display: flex; flex-direction: column; }
+a { color: #fff; text-decoration: none; }
+
+.nav { display: flex; justify-content: space-between; align-items: center; padding: 28px 48px; border-bottom: 1px solid #1a1a1a; }
+.nav-logo { border: 1.5px solid #fff; padding: 8px 20px; font-size: 15px; letter-spacing: 1px; }
+.nav-burger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; }
+.nav-burger div { width: 24px; height: 1.5px; background: #fff; }
+.nav-menu { display: none; position: fixed; inset: 0; background: #000; z-index: 100; flex-direction: column; align-items: center; justify-content: center; }
+.nav-menu.open { display: flex; }
+.nav-menu a { display: block; padding: 18px 32px; font-size: 18px; letter-spacing: 3px; text-transform: uppercase; color: #888; text-decoration: none; transition: color 0.2s; }
+.nav-menu a:hover, .nav-menu a.active { color: #fff; }
+.nav-close { position: absolute; top: 28px; right: 28px; font-size: 28px; cursor: pointer; color: #666; }
+
+.main { flex: 1; padding: 48px; }
+.page-title { font-family: "Source Code Pro", monospace; font-size: 42px; font-weight: 600; letter-spacing: 2px; margin-bottom: 12px; }
+.title-line { width: 48px; height: 2px; background: #4466ff; margin-bottom: 48px; }
+
+.portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; width: 100%; max-width: 1400px; }
+
+.portfolio-item {
+  border: 1px solid #1a1a1a;
+  padding: 44px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 180px;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateX(-30px);
+}
+.portfolio-item.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.portfolio-item:hover {
+  border-color: #4466ff;
+  background: rgba(68, 102, 255, 0.04);
+  transform: scale(1.02);
+}
+.portfolio-item img {
+  max-width: 200px;
+  max-height: 70px;
+  object-fit: contain;
+  filter: brightness(0.85);
+  transition: filter 0.3s;
+}
+.portfolio-item:hover img {
+  filter: brightness(1.1);
+}
+
+.daxos-footer { padding: 20px 48px; border-top: 1px solid #1a1a1a; display: flex; justify-content: center; align-items: center; font-size: 13px; color: #444; letter-spacing: 1px; gap: 16px; flex-wrap: wrap; background: #000; }
+.daxos-footer-links { display: flex; gap: 8px; align-items: center; }
+.daxos-footer-links a { color: #555; text-decoration: none; transition: color 0.2s; }
+.daxos-footer-links a:hover { color: #fff; }
+.daxos-footer-links .dot { color: #333; }
+.daxos-footer-copy { color: #333; }
+
+@media (max-width: 1024px) { .portfolio-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) {
+  .nav { padding: 16px 24px; }
+  .main { padding: 32px 24px; }
+  .page-title { font-size: 28px; }
+  .portfolio-grid { grid-template-columns: 1fr; }
+  .daxos-footer { padding: 16px 24px; }
+}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="/" class="nav-logo">daxos.capital</a>
+  <div class="nav-burger" onclick="document.querySelector('.nav-menu').classList.toggle('open')">
+    <div></div><div></div><div></div>
+  </div>
+</div>
+<div class="nav-menu">
+  <div class="nav-close" onclick="this.parentElement.classList.remove('open')">&times;</div>
+  <a href="/">Home</a>
+  <a href="/portfolio/" class="active">Portfolio</a>
+  <a href="/contact/">Contact</a>
+  <a href="/about/">About Us</a>
+</div>
+
+<div class="main">
+  <div class="page-title">PORTFOLIO</div>
+  <div class="title-line"></div>
+
+  <div class="portfolio-grid">
+    <a class="portfolio-item" href="https://pump.fun/" target="_blank">
+      <img src="/wp-content/uploads/2025/07/pumfun.svg" alt="pump.fun">
+    </a>
+    <a class="portfolio-item" href="https://steel.dev/" target="_blank">
+      <img src="/wp-content/uploads/2025/08/steel.dev_.svg" alt="steel.dev">
+    </a>
+    <a class="portfolio-item" href="https://cobfoods.com" target="_blank">
+      <img src="/wp-content/uploads/2025/07/cobfoods2.webp" alt="Cob Foods" style="max-height:100px;">
+    </a>
+    <a class="portfolio-item" href="https://www.xverse.app/" target="_blank">
+      <img src="/wp-content/uploads/2024/08/xverse.webp" alt="Xverse">
+    </a>
+    <a class="portfolio-item" href="https://www.botanixlabs.xyz/en/home" target="_blank">
+      <img src="/wp-content/uploads/2024/08/botaxnixlabs.svg" alt="Botanix Labs">
+    </a>
+    <a class="portfolio-item" href="https://bubblemaps.io/" target="_blank">
+      <img src="/wp-content/uploads/2024/08/bubblemaps-1.svg" alt="Bubblemaps">
+    </a>
+    <a class="portfolio-item" href="https://www.kinddesigns.com/" target="_blank">
+      <img src="/wp-content/uploads/2025/07/kinddesigns.jpg" alt="Kind Designs" style="filter:invert(1) brightness(2);">
+    </a>
+    <a class="portfolio-item" href="https://en.trendex.vip/" target="_blank">
+      <img src="/wp-content/uploads/2024/08/trendex-white.png" alt="Trendex">
+    </a>
+    <a class="portfolio-item" href="https://www.ord.io" target="_blank">
+      <img src="/wp-content/uploads/2024/09/ord_logo.png" alt="Ord.io">
+    </a>
+    <a class="portfolio-item" href="https://haloo.ai" target="_blank">
+      <img src="/wp-content/uploads/2024/09/haloo-logo.png" alt="Haloo">
+    </a>
+    <a class="portfolio-item" href="https://pear.vc" target="_blank">
+      <img src="/wp-content/uploads/2024/09/pear_logo.png" alt="Pear">
+    </a>
+    <a class="portfolio-item" href="https://hirechain.io" target="_blank">
+      <img src="/wp-content/uploads/2024/08/hirechain.svg" alt="HireChain">
+    </a>
+    <a class="portfolio-item" href="https://raze.bot" target="_blank">
+      <img src="/wp-content/uploads/2025/07/Raze-Logo-FINAL.webp" alt="Raze">
+    </a>
+    <a class="portfolio-item" href="https://worm.wtf" target="_blank">
+      <img src="/wp-content/uploads/2025/07/wormwtf.png" alt="Worm" style="max-width:280px;max-height:120px;">
+    </a>
+    <a class="portfolio-item" href="https://vest.markets" target="_blank">
+      <img src="/wp-content/uploads/2025/07/vestmarkets.png" alt="Vest Markets" style="filter:brightness(1.8);">
+    </a>
+  </div>
+</div>
+
+<div class="daxos-footer">
+  <div class="daxos-footer-links">
+    <a href="/">Home</a><span class="dot">&middot;</span>
+    <a href="/portfolio/">Portfolio</a><span class="dot">&middot;</span>
+    <a href="/contact/">Contact</a><span class="dot">&middot;</span>
+    <a href="/about/">About Us</a>
+  </div>
+  <span class="daxos-footer-copy">&copy; 2026 daxos.capital</span>
+</div>
+
+<script>
+(function() {
+  var items = document.querySelectorAll('.portfolio-item');
+  var delay = 150;
+  
+  setTimeout(function() {
+    items.forEach(function(item, i) {
+      setTimeout(function() {
+        item.classList.add('visible');
+      }, i * delay);
+    });
+  }, 400);
+})();
+</script>
+
+</body>
+</html>

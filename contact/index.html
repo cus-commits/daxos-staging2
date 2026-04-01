@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Daxos|Capital</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap');
+body { background: #000; color: #fff; font-family: "Roboto Mono", monospace; min-height: 100vh; display: flex; flex-direction: column; }
+a { color: #fff; text-decoration: none; }
+
+.nav { display: flex; justify-content: space-between; align-items: center; padding: 28px 48px; border-bottom: 1px solid #1a1a1a; }
+.nav-logo { border: 1.5px solid #fff; padding: 8px 20px; font-size: 15px; letter-spacing: 1px; }
+.nav-burger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; }
+.nav-burger div { width: 24px; height: 1.5px; background: #fff; }
+.nav-menu { display: none; position: fixed; inset: 0; background: #000; z-index: 100; flex-direction: column; align-items: center; justify-content: center; }
+.nav-menu.open { display: flex; }
+.nav-menu a { display: block; padding: 18px 32px; font-size: 18px; letter-spacing: 3px; text-transform: uppercase; color: #888; text-decoration: none; transition: color 0.2s; }
+.nav-menu a:hover, .nav-menu a.active { color: #fff; }
+.nav-close { position: absolute; top: 28px; right: 28px; font-size: 28px; cursor: pointer; color: #666; }
+
+.main { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 48px; text-align: center; }
+
+.typed-line { font-family: "Source Code Pro", monospace; font-size: 52px; letter-spacing: 2px; text-transform: uppercase; line-height: 1.3; font-weight: 600; min-height: 1.2em; }
+.typed-line .word { opacity: 0; display: inline; transition: opacity 0.12s ease; }
+.typed-line .word.visible { opacity: 1; }
+
+.divider { width: 48px; height: 1.5px; background: #fff; margin: 32px auto; opacity: 0; transition: opacity 0.5s ease; }
+.divider.visible { opacity: 1; }
+
+.apply-btn { display: inline-block; border: 1.5px solid #fff; padding: 18px 72px; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; font-family: "Source Code Pro", monospace; color: #fff; text-decoration: none; transition: all 0.3s; background: transparent; cursor: pointer; opacity: 0; transition: opacity 0.5s ease, background 0.3s, color 0.3s; }
+.apply-btn.visible { opacity: 1; }
+.apply-btn:hover { background: #fff; color: #000; }
+
+.fund-info { margin-top: 48px; text-align: center; font-family: "Source Code Pro", monospace; }
+.fund-line { font-size: 13px; color: #999; letter-spacing: 2px; line-height: 2.2; min-height: 1.2em; }
+.fund-line .ch { opacity: 0; display: inline; transition: opacity 0.15s ease; }
+.fund-line .ch.visible { opacity: 1; }
+
+.typed-cursor { display: inline-block; width: 2px; height: 1.1em; background: #4466ff; vertical-align: text-bottom; animation: blink 0.8s infinite; margin-left: 2px; }
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
+
+.daxos-footer { padding: 20px 48px; border-top: 1px solid #1a1a1a; display: flex; justify-content: center; align-items: center; font-size: 13px; color: #444; letter-spacing: 1px; gap: 16px; flex-wrap: wrap; background: #000; }
+.daxos-footer-links { display: flex; gap: 8px; align-items: center; }
+.daxos-footer-links a { color: #555; text-decoration: none; transition: color 0.2s; }
+.daxos-footer-links a:hover { color: #fff; }
+.daxos-footer-links .dot { color: #333; }
+.daxos-footer-copy { color: #333; }
+
+@media (max-width: 768px) {
+  .nav { padding: 16px 24px; }
+  .nav-logo { font-size: 13px; padding: 6px 16px; }
+  .typed-line { font-size: 32px; }
+  .main { padding: 0 24px; }
+  .fund-info { font-size: 11px; }
+  .daxos-footer { padding: 16px 24px; }
+}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="/" class="nav-logo">daxos.capital</a>
+  <div class="nav-burger" onclick="document.querySelector('.nav-menu').classList.toggle('open')">
+    <div></div><div></div><div></div>
+  </div>
+</div>
+<div class="nav-menu">
+  <div class="nav-close" onclick="this.parentElement.classList.remove('open')">&times;</div>
+  <a href="/">Home</a>
+  <a href="/portfolio/">Portfolio</a>
+  <a href="/contact/" class="active">Contact</a>
+  <a href="/about/">About Us</a>
+</div>
+
+<div class="main">
+  <div class="typed-line" id="line1"></div>
+  <div class="typed-line" id="line2"></div>
+  <div class="typed-line" id="line3"></div>
+  <div class="divider" id="divider"></div>
+  <a href="/apply/" class="apply-btn" id="applyBtn">APPLY &rarr;</a>
+  <div class="fund-info">
+    <div class="fund-line" id="f1"></div>
+    <div class="fund-line" id="f2"></div>
+    <div class="fund-line" id="f3"></div>
+    <div class="fund-line" id="f4"></div>
+    <div class="fund-line" id="f5"></div>
+  </div>
+</div>
+
+<div class="daxos-footer">
+  <div class="daxos-footer-links">
+    <a href="/">Home</a><span class="dot">&middot;</span>
+    <a href="/portfolio/">Portfolio</a><span class="dot">&middot;</span>
+    <a href="/contact/">Contact</a><span class="dot">&middot;</span>
+    <a href="/about/">About Us</a>
+  </div>
+  <span class="daxos-footer-copy">&copy; 2026 daxos.capital</span>
+</div>
+
+<script>
+(function() {
+  var charDelay = 25;
+  var lineGap = 200;
+
+  function typeChars(el, text, callback) {
+    var chars = text.split('');
+    el.innerHTML = chars.map(function(c, i) {
+      return '<span class="ch" data-i="' + i + '">' + (c === ' ' ? '&nbsp;' : c) + '</span>';
+    }).join('') + '<span class="typed-cursor"></span>';
+    var i = 0;
+    function next() {
+      if (i >= chars.length) {
+        var c = el.querySelector('.typed-cursor');
+        if (c) c.remove();
+        if (callback) setTimeout(callback, lineGap);
+        return;
+      }
+      el.querySelector('[data-i="' + i + '"]').classList.add('visible');
+      i++;
+      setTimeout(next, charDelay);
+    }
+    next();
+  }
+
+  // Also make headline chars use same system
+  var lines = [
+    { id: 'line1', text: 'WE ARE' },
+    { id: 'line2', text: 'ANGEL INVESTORS' },
+    { id: 'line3', text: 'NEED FUNDING?' }
+  ];
+  var fundLines = [
+    { id: 'f1', text: 'PRE-SEED / SEED STAGE' },
+    { id: 'f2', text: '$100K\u2013500K CHECKS' },
+    { id: 'f3', text: 'FINANCE \\ PAYMENTS' },
+    { id: 'f4', text: 'EXCHANGES \\ DEFI' },
+    { id: 'f5', text: 'TECH \\ AI' }
+  ];
+
+  function chainType(items, idx, cb) {
+    if (idx >= items.length) { if (cb) cb(); return; }
+    var el = document.getElementById(items[idx].id);
+    // For headlines use word class, for fund use ch class
+    var isHeadline = items[idx].id.startsWith('l');
+    if (isHeadline) {
+      // Headline: letter by letter but slightly faster
+      el.innerHTML = items[idx].text.split('').map(function(c, i) {
+        return '<span class="word" data-i="' + i + '">' + (c === ' ' ? '&nbsp;' : c) + '</span>';
+      }).join('') + '<span class="typed-cursor"></span>';
+      var i = 0;
+      function nextH() {
+        if (i >= items[idx].text.length) {
+          var c = el.querySelector('.typed-cursor');
+          if (c) c.remove();
+          setTimeout(function() { chainType(items, idx + 1, cb); }, lineGap);
+          return;
+        }
+        el.querySelector('[data-i="' + i + '"]').classList.add('visible');
+        i++;
+        setTimeout(nextH, 30);
+      }
+      nextH();
+    } else {
+      typeChars(el, items[idx].text, function() { chainType(items, idx + 1, cb); });
+    }
+  }
+
+  setTimeout(function() {
+    chainType(lines, 0, function() {
+      document.getElementById('divider').classList.add('visible');
+      setTimeout(function() {
+        document.getElementById('applyBtn').classList.add('visible');
+        setTimeout(function() {
+          chainType(fundLines, 0, function() {});
+        }, 300);
+      }, 300);
+    });
+  }, 400);
+})();
+</script>
+
+</body>
+</html>

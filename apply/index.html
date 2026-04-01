@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apply | Daxos|Capital</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;700&display=swap');
+body { background: #000; color: #fff; font-family: "Roboto Mono", "SF Mono", "Fira Code", monospace; min-height: 100vh; display: flex; flex-direction: column; }
+a { color: #fff; text-decoration: none; }
+
+.nav { display: flex; justify-content: space-between; align-items: center; padding: 28px 48px; border-bottom: 1px solid #1a1a1a; }
+.nav-logo { border: 1.5px solid #fff; padding: 8px 20px; font-size: 15px; letter-spacing: 1px; }
+.nav-burger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; }
+.nav-burger div { width: 24px; height: 1.5px; background: #fff; }
+.nav-menu { display: none; position: fixed; inset: 0; background: #000; z-index: 100; flex-direction: column; align-items: center; justify-content: center; gap: 0; }
+.nav-menu.open { display: flex; }
+.nav-menu a { display: block; padding: 14px 0; font-size: 18px; letter-spacing: 3px; text-transform: uppercase; color: #888; text-decoration: none; transition: color 0.2s; }
+.nav-menu a:hover, .nav-menu a.active { color: #fff; }
+.nav-close { position: absolute; top: 28px; right: 28px; font-size: 28px; cursor: pointer; color: #666; }
+
+.main { flex: 1; padding: 32px 48px; max-width: 860px; margin: 0 auto; width: 100%; }
+.page-title { font-size: 42px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; margin-bottom: 12px; font-family: "Source Code Pro", monospace; }
+.title-line { width: 48px; height: 2px; background: #4466ff; margin-bottom: 40px; }
+
+.form-group { margin-bottom: 32px; opacity: 0; transform: translateY(10px); transition: opacity 0.4s ease, transform 0.4s ease; }
+.form-group.visible { opacity: 1; transform: translateY(0); }
+.form-label { display: block; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: #bbb; margin-bottom: 12px; }
+.form-input, .form-textarea { width: 100%; background: transparent; border: none; border-bottom: 1px solid #2a2a2a; padding: 12px 0 16px; font-size: 18px; color: #fff; font-family: inherit; outline: none; }
+.form-input::placeholder, .form-textarea::placeholder { color: #555; }
+.form-input:focus, .form-textarea:focus { border-bottom-color: #555; }
+.form-textarea { resize: vertical; min-height: 40px; }
+.form-drop { border: 1px dashed #333; padding: 24px; text-align: center; color: #444; font-size: 11px; letter-spacing: 1px; }
+
+.submit-btn { width: 100%; border: 1.5px solid #4466ff; padding: 18px; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; font-family: inherit; color: #fff; background: rgba(68,102,255,0.08); cursor: pointer; transition: all 0.3s; margin-top: 12px; }
+.submit-btn:hover { background: #4466ff; color: #fff; }
+
+.fund-tagline { margin-top: 40px; font-size: 11px; color: #888; letter-spacing: 2px; text-align: center; line-height: 2; }
+
+.footer { padding: 16px 48px; border-top: 1px solid #1a1a1a; display: flex; justify-content: space-between; align-items: center; font-size: 10px; color: #444; letter-spacing: 1px; margin-top: auto; }
+.footer-links { display: flex; gap: 24px; }
+.footer-links a { color: #444; }
+.footer-links a.active { color: #fff; }
+
+@media (max-width: 768px) {
+  .nav { padding: 16px 24px; }
+  .nav-logo { font-size: 13px; padding: 6px 16px; }
+  .main { padding: 24px 24px; }
+  .page-title { font-size: 24px; }
+  .footer { padding: 16px 24px; flex-direction: column; gap: 12px; text-align: center; }
+}
+</style>
+<style>
+.daxos-footer { padding: 20px 48px; border-top: 1px solid #1a1a1a; display: flex; justify-content: center; align-items: center; font-size: 13px; color: #444; letter-spacing: 1px; gap: 16px; flex-wrap: wrap; font-family: "Roboto Mono", monospace; background: #000; }
+.daxos-footer-links { display: flex; gap: 8px; align-items: center; }
+.daxos-footer-links a { color: #555; text-decoration: none; transition: color 0.2s; }
+.daxos-footer-links a:hover { color: #fff; }
+.daxos-footer-links .dot { color: #333; }
+.daxos-footer-copy { color: #333; }
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="/" class="nav-logo">daxos.capital</a>
+  <div class="nav-burger" onclick="document.querySelector('.nav-menu').classList.toggle('open')">
+    <div></div><div></div><div></div>
+  </div>
+</div>
+<div class="nav-menu">
+  <div class="nav-close" onclick="this.parentElement.classList.remove('open')">&times;</div>
+  <a href="/">Home</a>
+  <a href="/portfolio/">Portfolio</a>
+  <a href="/contact/" class="active">Contact</a>
+  <a href="/about/">About Us</a>
+</div>
+
+<div class="main">
+  <div class="page-title">APPLY</div>
+  <div class="title-line"></div>
+
+  <form id="applyForm" onsubmit="return submitForm(event)">
+
+    <div class="form-group">
+      <label class="form-label">COMPANY NAME</label>
+      <input type="text" name="company_name" class="form-input" required />
+    </div>
+    <div class="form-group">
+      <label class="form-label">COMPANY WEBSITE</label>
+      <input type="url" name="company_website" class="form-input" placeholder="https://..." />
+    </div>
+    <div class="form-group">
+      <label class="form-label">DESCRIPTION OF COMPANY</label>
+      <textarea name="description" class="form-textarea" rows="2" placeholder="Brief overview..."></textarea>
+    </div>
+    <div class="form-group">
+      <label class="form-label">PITCH DECK / DATA ROOM</label>
+      <input type="url" name="pitch_deck" class="form-input" placeholder="Paste link to deck or data room" />
+    </div>
+    <div class="form-group">
+      <label class="form-label">TELEGRAM HANDLE</label>
+      <input type="text" name="telegram" class="form-input" placeholder="@handle" />
+    </div>
+    <div class="form-group">
+      <label class="form-label">EMAIL</label>
+      <input type="email" name="email" class="form-input" required placeholder="founder@company.com" />
+    </div>
+    <div class="form-group">
+      <label class="form-label">ADDITIONAL INFO</label>
+      <textarea name="additional_info" class="form-textarea" rows="2" placeholder="Anything else..."></textarea>
+    </div>
+
+    <button type="submit" class="submit-btn" id="submitBtn">SUBMIT &rarr;</button>
+  </form>
+
+<script>
+// Animate form fields appearing one by one
+(function() {
+  var groups = document.querySelectorAll('.form-group');
+  var btn = document.querySelector('.submit-btn');
+  if (btn) { btn.style.opacity = '0'; btn.style.transform = 'translateY(10px)'; btn.style.transition = 'opacity 0.4s ease, transform 0.4s ease'; }
+  setTimeout(function() {
+    groups.forEach(function(g, i) {
+      setTimeout(function() { g.classList.add('visible'); }, i * 200);
+    });
+    if (btn) setTimeout(function() { btn.style.opacity = '1'; btn.style.transform = 'translateY(0)'; }, groups.length * 200);
+  }, 400);
+})();
+
+function submitForm(e) {
+  e.preventDefault();
+  var f = document.getElementById('applyForm');
+  var btn = document.getElementById('submitBtn');
+  var data = {};
+  new FormData(f).forEach(function(v,k){ data[k]=v; });
+
+  btn.textContent = 'SENDING...';
+  btn.disabled = true;
+
+  fetch('/api/submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  })
+  .then(function(r) { return r.json(); })
+  .then(function(result) {
+    if (result.success) {
+      window.location.href = '/apply-success/';
+    } else {
+      btn.textContent = 'SUBMIT \u2192';
+      btn.disabled = false;
+      alert('Submission failed. Please email info@daxos.capital directly.');
+    }
+  })
+  .catch(function() {
+    btn.textContent = 'SUBMIT \u2192';
+    btn.disabled = false;
+    alert('Submission failed. Please email info@daxos.capital directly.');
+  });
+  return false;
+}
+</script>
+
+  <div class="fund-tagline">
+    PRE-SEED / SEED STAGE &middot; $100K&ndash;500K CHECKS<br>
+    FINANCE \ PAYMENTS &middot; EXCHANGES \ DEFI &middot; TECH \ AI
+  </div>
+</div>
+
+<div class="footer">
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="/portfolio/">Portfolio</a>
+    <a href="/contact/">Contact</a>
+    <a href="/about/">About Us</a>
+  </div>
+  <span>&copy; 2026 daxos.capital</span>
+</div>
+
+</body>
+</html>
