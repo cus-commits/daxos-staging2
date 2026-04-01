@@ -188,18 +188,18 @@ a[href="/contact/"], a[href="/contact/"] span {
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 200vmax;
-  height: 200vmax;
+  width: 140vmax;
+  height: 140vmax;
   transform: translate(-50%, -50%);
-  z-index: 0;
+  z-index: 10;
   pointer-events: none;
 }
 .coin-outline {
-  background: url('/wp-content/uploads/2025/07/coin-outline.png') center/cover no-repeat;
+  background: url('/wp-content/uploads/2025/07/coin-outline.png') center/contain no-repeat;
   opacity: 1;
 }
 .coin-flash {
-  background: url('/wp-content/uploads/2025/07/coin-sketch.png') center/cover no-repeat;
+  background: url('/wp-content/uploads/2025/07/coin-sketch.png') center/contain no-repeat;
   opacity: 0;
   animation: coinFlash 8.15s linear infinite;
 }
@@ -207,11 +207,11 @@ a[href="/contact/"], a[href="/contact/"] span {
   0% { opacity: 0; transform: translate(-50%, -50%) rotate(0deg); }
   /* Slow invisible spin between flashes */
   85% { opacity: 0; transform: translate(-50%, -50%) rotate(25deg); }
-  /* Stop spinning, flash */
-  86% { opacity: 0.4; transform: translate(-50%, -50%) rotate(25deg); }
-  86.5% { opacity: 0.15; transform: translate(-50%, -50%) rotate(25deg); }
-  87% { opacity: 0.35; transform: translate(-50%, -50%) rotate(25deg); }
-  88% { opacity: 0.1; transform: translate(-50%, -50%) rotate(25deg); }
+  /* Stop spinning, flash — more visible */
+  86% { opacity: 0.7; transform: translate(-50%, -50%) rotate(25deg); }
+  86.5% { opacity: 0.25; transform: translate(-50%, -50%) rotate(25deg); }
+  87% { opacity: 0.6; transform: translate(-50%, -50%) rotate(25deg); }
+  88% { opacity: 0.2; transform: translate(-50%, -50%) rotate(25deg); }
   89% { opacity: 0; transform: translate(-50%, -50%) rotate(25deg); }
   /* Stay still after flash, then reset */
   100% { opacity: 0; transform: translate(-50%, -50%) rotate(25deg); }
