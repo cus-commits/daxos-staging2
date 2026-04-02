@@ -201,35 +201,35 @@ a[href="/contact/"], a[href="/contact/"] span {
 .coin-flash {
   background: url('/wp-content/uploads/2025/07/coin-sketch.png') center/cover no-repeat;
   opacity: 0;
-  animation: coinFlash 8.15s linear infinite;
+  animation: coinFlash1 16.3s linear infinite;
 }
 .coin-flash-2 {
-  background: url('/wp-content/uploads/2025/07/coin-sketch-2.png') center/contain no-repeat;
+  background: url('/wp-content/uploads/2025/07/coin-sketch-2.png') center/cover no-repeat;
   opacity: 0;
-  animation: coinFlash2 8.15s linear infinite;
-  animation-delay: 7s;
+  animation: coinFlash2 16.3s linear infinite;
 }
-@keyframes coinFlash {
+/* 16.3s total cycle. Coin 1 flashes in first half, coin 2 in second half. */
+/* Each flash window is ~3% of 16.3s ≈ 0.5s */
+@keyframes coinFlash1 {
   0% { opacity: 0; transform: translate(-50%, -50%) rotate(0deg); }
-  /* Slow invisible spin between flashes */
-  85% { opacity: 0; transform: translate(-50%, -50%) rotate(25deg); }
-  /* Stop spinning, flash */
-  86% { opacity: 0.4; transform: translate(-50%, -50%) rotate(25deg); }
-  86.5% { opacity: 0.15; transform: translate(-50%, -50%) rotate(25deg); }
-  87% { opacity: 0.35; transform: translate(-50%, -50%) rotate(25deg); }
-  88% { opacity: 0.1; transform: translate(-50%, -50%) rotate(25deg); }
-  89% { opacity: 0; transform: translate(-50%, -50%) rotate(25deg); }
-  /* Stay still after flash, then reset */
+  /* Spin invisibly, flash at ~43% (first half) */
+  42% { opacity: 0; transform: translate(-50%, -50%) rotate(25deg); }
+  43% { opacity: 0.4; transform: translate(-50%, -50%) rotate(25deg); }
+  43.5% { opacity: 0.15; transform: translate(-50%, -50%) rotate(25deg); }
+  44% { opacity: 0.35; transform: translate(-50%, -50%) rotate(25deg); }
+  45% { opacity: 0.1; transform: translate(-50%, -50%) rotate(25deg); }
+  46% { opacity: 0; transform: translate(-50%, -50%) rotate(25deg); }
   100% { opacity: 0; transform: translate(-50%, -50%) rotate(25deg); }
 }
 @keyframes coinFlash2 {
   0% { opacity: 0; transform: translate(-50%, -50%) rotate(0deg); }
-  85% { opacity: 0; transform: translate(-50%, -50%) rotate(12deg); }
-  86% { opacity: 0.3; transform: translate(-50%, -50%) rotate(12deg); }
-  86.5% { opacity: 0.1; transform: translate(-50%, -50%) rotate(12deg); }
-  87% { opacity: 0.25; transform: translate(-50%, -50%) rotate(12deg); }
-  88% { opacity: 0.08; transform: translate(-50%, -50%) rotate(12deg); }
-  89% { opacity: 0; transform: translate(-50%, -50%) rotate(12deg); }
+  /* Spin invisibly, flash at ~93% (second half) */
+  92% { opacity: 0; transform: translate(-50%, -50%) rotate(12deg); }
+  93% { opacity: 0.35; transform: translate(-50%, -50%) rotate(12deg); }
+  93.5% { opacity: 0.12; transform: translate(-50%, -50%) rotate(12deg); }
+  94% { opacity: 0.3; transform: translate(-50%, -50%) rotate(12deg); }
+  95% { opacity: 0.08; transform: translate(-50%, -50%) rotate(12deg); }
+  96% { opacity: 0; transform: translate(-50%, -50%) rotate(12deg); }
   100% { opacity: 0; transform: translate(-50%, -50%) rotate(12deg); }
 }
 
