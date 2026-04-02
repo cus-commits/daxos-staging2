@@ -244,10 +244,46 @@ a[href="/contact/"], a[href="/contact/"] span {
   .daxos-footer { padding: 12px 20px !important; font-size: 11px !important; }
   #page-content .l-section-h.i-cf .wpb_wrapper { border: none !important; padding: 0 !important; }
 
-  #page-content .l-section-h.i-cf .wpb_wrapper { border: none !important; padding: 0 !important; }
+  /* Kill overflow clipping that hides the tagline */
+  .l-section.full_height { overflow: visible !important; }
+  .l-canvas { overflow: visible !important; }
+
+  /* Kill ALL absolute positioning in the tagline chain */
+  .home-textblock { position: static !important; top: auto !important; }
+  #fancy-text,
+  #fancy-text .l-section-h,
+  #fancy-text .g-cols,
+  #fancy-text .wpb_column,
+  #fancy-text .vc_column-inner,
+  #fancy-text .rb-inner-col,
+  #fancy-text #fancytextwrapper,
+  #fancy-text #fancytextwrapper > .vc_column-inner,
+  #uvc-type-wrap-7848,
+  .rb-home-tagline {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    overflow: visible !important;
+  }
+
+  /* Make the section a simple centered flex container */
+  #fancy-text {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* Center the text */
   .rb-home-tagline, #uvc-type-wrap-7848 { text-align: center !important; }
-  .mycustfancy, .ultimate-typewriter-prefix { text-align: center !important; }
-  .daxos-footer { padding: 12px 20px !important; font-size: 11px !important; }
+  .mycustfancy, .ultimate-typewriter-prefix {
+    text-align: center !important;
+    font-size: 28px !important;
+    line-height: 1.4 !important;
+    display: block !important;
+  }
+  #fancytextwrapper { padding: 0 15px !important; }
 }
 </style>
 <style>
@@ -518,45 +554,7 @@ jQuery( document ).ready(function() {
   }
 })();
 </script>
-<script>
-// Mobile tagline centering — simple approach
-// The section #fancy-text has full viewport height. Just position the tagline
-// in its center using the section as containing block.
-(function() {
-  if (window.innerWidth > 768) return;
-
-  function fix() {
-    var section = document.getElementById('fancy-text');
-    var tagline = document.querySelector('#uvc-type-wrap-7848') || document.querySelector('.rb-home-tagline');
-    if (!section || !tagline) return;
-
-    // The section already has full_height (100vh-70px). Just make it the positioning parent
-    // and absolutely position the tagline in its center.
-    // Don't touch any wrapper heights or displays — leave them alone.
-    section.style.position = 'relative';
-
-    tagline.style.position = 'absolute';
-    tagline.style.top = '50%';
-    tagline.style.left = '0';
-    tagline.style.right = '0';
-    tagline.style.transform = 'translateY(-50%)';
-    tagline.style.textAlign = 'center';
-    tagline.style.padding = '0 20px';
-    tagline.style.zIndex = '5';
-
-    var span = tagline.querySelector('.mycustfancy') || tagline.querySelector('.ultimate-typewriter-prefix');
-    if (span) {
-      span.style.textAlign = 'center';
-      span.style.fontSize = '28px';
-      span.style.lineHeight = '1.4';
-    }
-  }
-
-  fix();
-  setTimeout(fix, 500);
-  setTimeout(fix, 2000);
-})();
-</script>
+<!-- Mobile tagline centering now handled by CSS only (no JS) -->
 </body>
 </html>
     <!-- Start of HubSpot Embed Code -->
