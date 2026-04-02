@@ -273,15 +273,20 @@ a[href="/contact/"], a[href="/contact/"] span {
 }
 </style>
 <style>
-/* Match logo + hamburger to subpages */
-/* Logo: 16% bigger than 15px = ~17px, tighter padding */
-#animatedaxoslogo, .rb-home-exos { font-size: 17px !important; letter-spacing: 1px !important; padding: 6px 12px !important; display: inline-block !important; border: 0.8px solid #fff !important; }
-/* Match header padding to subpages (28px 48px) */
-.l-subheader.at_bottom .l-subheader-h { padding: 28px 48px !important; }
-/* Align hamburger with subpages */
-.w-nav-icon { margin-top: -2px !important; }
+/* Hide WordPress header entirely, use clean nav instead */
+#page-header { display: none !important; }
+.clean-nav { display: flex; justify-content: space-between; align-items: center; padding: 28px 48px; border-bottom: 1px solid #1a1a1a; position: relative; z-index: 20; background: #000; }
+.clean-nav .nav-logo { border: 0.8px solid #fff; padding: 6px 12px; font-size: 17px; letter-spacing: 1px; color: #fff; text-decoration: none; }
+.clean-nav .nav-burger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; }
+.clean-nav .nav-burger div { width: 24px; height: 1.5px; background: #fff; }
+.clean-nav-menu { display: none; position: fixed; inset: 0; background: #000; z-index: 100; flex-direction: column; align-items: center; justify-content: center; }
+.clean-nav-menu.open { display: flex; }
+.clean-nav-menu a { display: block; padding: 18px 32px; font-size: 18px; letter-spacing: 3px; text-transform: uppercase; color: #888; text-decoration: none; transition: color 0.2s; }
+.clean-nav-menu a:hover, .clean-nav-menu a.active { color: #fff; }
+.clean-nav-close { position: absolute; top: 28px; right: 48px; font-size: 28px; cursor: pointer; color: #666; }
 @media (max-width: 768px) {
-  .l-subheader.at_bottom .l-subheader-h { padding: 16px 20px !important; }
+  .clean-nav { padding: 16px 20px; }
+  .clean-nav-close { top: 16px; right: 20px; }
 }
 .l-section.full_height { min-height: calc(100vh - 70px) !important; max-height: calc(100vh - 70px) !important; overflow: hidden !important; }
 .daxos-footer { position: fixed !important; bottom: 0 !important; left: 0 !important; right: 0 !important; z-index: 50 !important; }
@@ -293,14 +298,7 @@ a[href="/contact/"], a[href="/contact/"] span {
   .daxos-footer { padding: 12px 20px !important; font-size: 11px !important; }
 }
 </style>
-<style>
-/* Force nav order: Home(3034), Portfolio(5361), Contact(5396), About Us(5360) */
-.w-nav-list.level_1, #menu-main-menu-1, .w-menu .menu { display: flex !important; flex-direction: column !important; }
-.menu-item-3034, li:has(a[href="/"]) { order: 1 !important; }
-.menu-item-5361, li:has(a[href="/portfolio/"]) { order: 2 !important; }
-.menu-item-5396, li:has(a[href="/contact/"]) { order: 3 !important; }
-.menu-item-5360, li:has(a[href="/about/"]) { order: 4 !important; }
-</style>
+<!-- WordPress nav order CSS removed — using clean nav instead -->
 </head>
 <body class="home wp-singular page-template-default page page-id-3936 wp-theme-Impreza wp-child-theme-impreza-child-impreza-child l-body Impreza_8.10 us-core_8.10.1 header_hor headerinpos_top state_default wpb-js-composer js-comp-ver-6.9.0 vc_responsive" itemscope itemtype="https://schema.org/WebPage">
 
@@ -308,6 +306,19 @@ a[href="/contact/"], a[href="/contact/"] span {
 <div class="coin-flash"></div>
 <div class="coin-flash-2"></div>
 <div class="coin-flash-3"></div>
+<div class="clean-nav">
+  <a href="/" class="nav-logo">daxos.capital</a>
+  <div class="nav-burger" onclick="document.querySelector('.clean-nav-menu').classList.toggle('open')">
+    <div></div><div></div><div></div>
+  </div>
+</div>
+<div class="clean-nav-menu">
+  <div class="clean-nav-close" onclick="this.parentElement.classList.remove('open')">&times;</div>
+  <a href="/">Home</a>
+  <a href="/portfolio/">Portfolio</a>
+  <a href="/contact/">Contact</a>
+  <a href="/about/">About Us</a>
+</div>
 <div class="l-canvas type_wide">
 	<header id="page-header" class="l-header pos_static shadow_wide bg_solid id_3032" itemscope itemtype="https://schema.org/WPHeader"><div class="l-subheader at_middle"><div class="l-subheader-h"><div class="l-subheader-cell at_left"></div><div class="l-subheader-cell at_center"></div><div class="l-subheader-cell at_right"><nav class="w-nav type_desktop ush_menu_1 hidden dropdown_none m_align_center m_layout_dropdown" itemscope itemtype="https://schema.org/SiteNavigationElement"><a class="w-nav-control" aria-label="Menu" href="#"><div class="w-nav-icon"><div></div></div></a><ul class="w-nav-list level_1 hide_for_mobiles hover_simple"><li id="menu-item-3034" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item w-nav-item level_1 menu-item-3034"><a class="w-nav-anchor level_1" href="/"><span class="w-nav-title">00 Home</span><span class="w-nav-arrow"></span></a></li><li id="menu-item-5361" class="menu-item menu-item-type-post_type menu-item-object-page w-nav-item level_1 menu-item-5361"><a class="w-nav-anchor level_1" href="/portfolio/"><span class="w-nav-title">03 Portfolio</span><span class="w-nav-arrow"></span></a></li><li id="menu-item-5396" class="menu-item menu-item-type-post_type menu-item-object-page w-nav-item level_1 menu-item-5396"><a class="w-nav-anchor level_1" href="/contact/"><span class="w-nav-title">04 Contact</span><span class="w-nav-arrow"></span></a></li><li id="menu-item-5360" class="menu-item menu-item-type-post_type menu-item-object-page w-nav-item level_1 menu-item-5360"><a class="w-nav-anchor level_1" href="/about/"><span class="w-nav-title">01 About</span><span class="w-nav-arrow"></span></a></li><li class="w-nav-close"></li></ul><div class="w-nav-options hidden" onclick='return {&quot;mobileWidth&quot;:30000,&quot;mobileBehavior&quot;:1}'></div></nav><div class="w-html ush_html_3 daxos-menu"><nav>
     <div class="nav-right">
