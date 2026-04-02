@@ -194,15 +194,21 @@ a[href="/contact/"], a[href="/contact/"] span {
   z-index: 0;
   pointer-events: none;
 }
-.coin-flash-2 {
+.coin-flash-2, .coin-flash-3 {
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 130vmin;
-  height: 130vmin;
   transform: translate(-50%, -50%);
   z-index: 0;
   pointer-events: none;
+}
+.coin-flash-2 {
+  width: 140vmin;
+  height: 140vmin;
+}
+.coin-flash-3 {
+  width: 130vmin;
+  height: 130vmin;
 }
 .coin-outline {
   background: url('/wp-content/uploads/2025/07/coin-outline.png') center/cover no-repeat;
@@ -211,36 +217,48 @@ a[href="/contact/"], a[href="/contact/"] span {
 .coin-flash {
   background: url('/wp-content/uploads/2025/07/coin-sketch.png') center/cover no-repeat;
   opacity: 0;
-  animation: coinFlash1 16.3s linear infinite;
+  animation: coinFlash1 24.45s linear infinite;
 }
 .coin-flash-2 {
   background: url('/wp-content/uploads/2025/07/coin-sketch-2.png') center/cover no-repeat;
   opacity: 0;
-  animation: coinFlash2 16.3s linear infinite;
+  animation: coinFlash2 24.45s linear infinite;
 }
-/* 16.3s total cycle. Coin 1 flashes in first half, coin 2 in second half. */
-/* Each flash window is ~3% of 16.3s ≈ 0.5s */
+.coin-flash-3 {
+  background: url('/wp-content/uploads/2025/07/coin-sketch-3.png') center/cover no-repeat;
+  opacity: 0;
+  animation: coinFlash3 24.45s linear infinite;
+}
+/* 24.45s cycle (3 × 8.15s). Coin 1 at ~28%, coin 2 at ~61%, coin 3 at ~95% */
 @keyframes coinFlash1 {
   0% { opacity: 0; transform: translate(-50%, -50%) rotate(0deg); }
-  /* Spin invisibly, flash at ~43% (first half) */
-  42% { opacity: 0; transform: translate(-50%, -50%) rotate(25deg); }
-  43% { opacity: 0.4; transform: translate(-50%, -50%) rotate(25deg); }
-  43.5% { opacity: 0.15; transform: translate(-50%, -50%) rotate(25deg); }
-  44% { opacity: 0.35; transform: translate(-50%, -50%) rotate(25deg); }
-  45% { opacity: 0.1; transform: translate(-50%, -50%) rotate(25deg); }
-  46% { opacity: 0; transform: translate(-50%, -50%) rotate(25deg); }
+  27% { opacity: 0; transform: translate(-50%, -50%) rotate(25deg); }
+  28% { opacity: 0.4; transform: translate(-50%, -50%) rotate(25deg); }
+  28.5% { opacity: 0.15; transform: translate(-50%, -50%) rotate(25deg); }
+  29% { opacity: 0.35; transform: translate(-50%, -50%) rotate(25deg); }
+  30% { opacity: 0.1; transform: translate(-50%, -50%) rotate(25deg); }
+  31% { opacity: 0; transform: translate(-50%, -50%) rotate(25deg); }
   100% { opacity: 0; transform: translate(-50%, -50%) rotate(25deg); }
 }
 @keyframes coinFlash2 {
   0% { opacity: 0; transform: translate(-50%, -50%) rotate(0deg); }
-  /* Spin invisibly, flash at ~93% (second half) */
-  92% { opacity: 0; transform: translate(-50%, -50%) rotate(12deg); }
-  93% { opacity: 0.35; transform: translate(-50%, -50%) rotate(12deg); }
-  93.5% { opacity: 0.12; transform: translate(-50%, -50%) rotate(12deg); }
-  94% { opacity: 0.3; transform: translate(-50%, -50%) rotate(12deg); }
-  95% { opacity: 0.08; transform: translate(-50%, -50%) rotate(12deg); }
-  96% { opacity: 0; transform: translate(-50%, -50%) rotate(12deg); }
+  60% { opacity: 0; transform: translate(-50%, -50%) rotate(12deg); }
+  61% { opacity: 0.35; transform: translate(-50%, -50%) rotate(12deg); }
+  61.5% { opacity: 0.12; transform: translate(-50%, -50%) rotate(12deg); }
+  62% { opacity: 0.3; transform: translate(-50%, -50%) rotate(12deg); }
+  63% { opacity: 0.08; transform: translate(-50%, -50%) rotate(12deg); }
+  64% { opacity: 0; transform: translate(-50%, -50%) rotate(12deg); }
   100% { opacity: 0; transform: translate(-50%, -50%) rotate(12deg); }
+}
+@keyframes coinFlash3 {
+  0% { opacity: 0; transform: translate(-50%, -50%) rotate(0deg); }
+  93% { opacity: 0; transform: translate(-50%, -50%) rotate(10deg); }
+  94% { opacity: 0.35; transform: translate(-50%, -50%) rotate(10deg); }
+  94.5% { opacity: 0.12; transform: translate(-50%, -50%) rotate(10deg); }
+  95% { opacity: 0.3; transform: translate(-50%, -50%) rotate(10deg); }
+  96% { opacity: 0.08; transform: translate(-50%, -50%) rotate(10deg); }
+  97% { opacity: 0; transform: translate(-50%, -50%) rotate(10deg); }
+  100% { opacity: 0; transform: translate(-50%, -50%) rotate(10deg); }
 }
 
 </style>
@@ -287,6 +305,7 @@ a[href="/contact/"], a[href="/contact/"] span {
 <div class="coin-outline"></div>
 <div class="coin-flash"></div>
 <div class="coin-flash-2"></div>
+<div class="coin-flash-3"></div>
 <div class="l-canvas type_wide">
 	<header id="page-header" class="l-header pos_static shadow_wide bg_solid id_3032" itemscope itemtype="https://schema.org/WPHeader"><div class="l-subheader at_middle"><div class="l-subheader-h"><div class="l-subheader-cell at_left"></div><div class="l-subheader-cell at_center"></div><div class="l-subheader-cell at_right"><nav class="w-nav type_desktop ush_menu_1 hidden dropdown_none m_align_center m_layout_dropdown" itemscope itemtype="https://schema.org/SiteNavigationElement"><a class="w-nav-control" aria-label="Menu" href="#"><div class="w-nav-icon"><div></div></div></a><ul class="w-nav-list level_1 hide_for_mobiles hover_simple"><li id="menu-item-3034" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item w-nav-item level_1 menu-item-3034"><a class="w-nav-anchor level_1" href="/"><span class="w-nav-title">00 Home</span><span class="w-nav-arrow"></span></a></li><li id="menu-item-5361" class="menu-item menu-item-type-post_type menu-item-object-page w-nav-item level_1 menu-item-5361"><a class="w-nav-anchor level_1" href="/portfolio/"><span class="w-nav-title">03 Portfolio</span><span class="w-nav-arrow"></span></a></li><li id="menu-item-5396" class="menu-item menu-item-type-post_type menu-item-object-page w-nav-item level_1 menu-item-5396"><a class="w-nav-anchor level_1" href="/contact/"><span class="w-nav-title">04 Contact</span><span class="w-nav-arrow"></span></a></li><li id="menu-item-5360" class="menu-item menu-item-type-post_type menu-item-object-page w-nav-item level_1 menu-item-5360"><a class="w-nav-anchor level_1" href="/about/"><span class="w-nav-title">01 About</span><span class="w-nav-arrow"></span></a></li><li class="w-nav-close"></li></ul><div class="w-nav-options hidden" onclick='return {&quot;mobileWidth&quot;:30000,&quot;mobileBehavior&quot;:1}'></div></nav><div class="w-html ush_html_3 daxos-menu"><nav>
     <div class="nav-right">
