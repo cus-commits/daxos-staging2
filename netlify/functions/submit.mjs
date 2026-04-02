@@ -56,12 +56,14 @@ export default async (req) => {
       } catch(e) {}
     }
 
-    // METHOD 4: Airtable — persistent database of all applications
+    // METHOD 4: Airtable — write to ALL COMPANIES table in Investment Targets CRM
     const airtableKey = process.env.AIRTABLE_API_KEY;
-    const airtableBase = process.env.AIRTABLE_BASE_ID;
-    const airtableTable = process.env.AIRTABLE_TABLE || "Website Applications";
-    if (airtableKey && airtableBase) {
+    const airtableBase = "appZjMzKRqOou2OmV";
+    const airtableTable = "ALL COMPANIES";
+    if (airtableKey) {
       try {
+        const contactInfo = [data.email, data.telegram].filter(Boolean).join(" | ");
+        const notes = [data.description, data.additional_info].filter(Boolean).join("\n\n");
         const r = await fetch(`https://api.airtable.com/v0/${airtableBase}/${encodeURIComponent(airtableTable)}`, {
           method: "POST",
           headers: {
@@ -70,15 +72,13 @@ export default async (req) => {
           },
           body: JSON.stringify({
             fields: {
-              "Company Name": data.company_name || "",
-              "Website": data.company_website || "",
-              "Description": data.description || "",
-              "Pitch Deck": data.pitch_deck || "",
-              "Telegram": data.telegram || "",
-              "Email": data.email || "",
-              "Additional Info": data.additional_info || "",
-              "Submitted": timestamp,
-              "Status": "New"
+              "Company": data.company_name || "",
+              "Company Link": data.company_website || "",
+              "Pitch Deck Link": data.pitch_deck || "",
+              "Company Contacts": contactInfo,
+              "Original Notes + Ongoing Negotiation Notes": notes,
+              "Source": "Website Application — " + timestamp,
+              "CRM Stage": "Website Application"
             }
           })
         });
