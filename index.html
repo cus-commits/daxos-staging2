@@ -244,45 +244,10 @@ a[href="/contact/"], a[href="/contact/"] span {
   .daxos-footer { padding: 12px 20px !important; font-size: 11px !important; }
   #page-content .l-section-h.i-cf .wpb_wrapper { border: none !important; padding: 0 !important; }
 
-  /* Nuclear mobile tagline centering — force entire wrapper chain to flex-center */
-  #fancy-text {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    overflow: visible !important;
-  }
-  #fancy-text .l-section-h,
-  #fancy-text .g-cols,
-  #fancy-text .wpb_column,
-  #fancy-text .vc_column-inner,
-  #fancy-text .rb-inner-col,
-  #fancy-text #fancytextwrapper,
-  #fancy-text #fancytextwrapper > .vc_column-inner {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 100% !important;
-    height: auto !important;
-    position: static !important;
-    min-height: 0 !important;
-    max-height: none !important;
-    overflow: visible !important;
-    top: auto !important;
-    transform: none !important;
-  }
-  #fancy-text .home-textblock {
-    position: static !important;
-    top: auto !important;
-  }
-  #fancy-text .rb-home-tagline,
-  #fancy-text #uvc-type-wrap-7848 {
-    position: static !important;
-    width: 100% !important;
-    text-align: center !important;
-    transform: none !important;
-    top: auto !important;
-    left: auto !important;
-  }
+  #page-content .l-section-h.i-cf .wpb_wrapper { border: none !important; padding: 0 !important; }
+  .rb-home-tagline, #uvc-type-wrap-7848 { text-align: center !important; }
+  .mycustfancy, .ultimate-typewriter-prefix { text-align: center !important; }
+  .daxos-footer { padding: 12px 20px !important; font-size: 11px !important; }
 }
 </style>
 <style>
@@ -554,68 +519,42 @@ jQuery( document ).ready(function() {
 })();
 </script>
 <script>
-// Mobile tagline centering — nuclear approach: force EVERY wrapper in the chain to flex-center
+// Mobile tagline centering — simple approach
+// The section #fancy-text has full viewport height. Just position the tagline
+// in its center using the section as containing block.
 (function() {
   if (window.innerWidth > 768) return;
 
-  function centerTagline() {
+  function fix() {
     var section = document.getElementById('fancy-text');
-    var tagline = document.querySelector('.rb-home-tagline') || document.getElementById('uvc-type-wrap-7848');
+    var tagline = document.querySelector('#uvc-type-wrap-7848') || document.querySelector('.rb-home-tagline');
     if (!section || !tagline) return;
 
-    // Force the section to be a flex container that centers its child
-    var sectionH = section.querySelector('.l-section-h');
+    // The section already has full_height (100vh-70px). Just make it the positioning parent
+    // and absolutely position the tagline in its center.
+    // Don't touch any wrapper heights or displays — leave them alone.
+    section.style.position = 'relative';
 
-    // Walk UP from the tagline to the section, collecting every wrapper div
-    var wrappers = [];
-    var el = tagline.parentElement;
-    while (el && el !== section) {
-      wrappers.push(el);
-      el = el.parentElement;
-    }
+    tagline.style.position = 'absolute';
+    tagline.style.top = '50%';
+    tagline.style.left = '0';
+    tagline.style.right = '0';
+    tagline.style.transform = 'translateY(-50%)';
+    tagline.style.textAlign = 'center';
+    tagline.style.padding = '0 20px';
+    tagline.style.zIndex = '5';
 
-    // Force the section itself to flex-center
-    section.style.cssText += ';display:flex !important;align-items:center !important;justify-content:center !important;position:relative !important;';
-
-    // Force EVERY intermediate wrapper to also flex-center and fill available space
-    // This defeats any theme positioning, overflow, or height constraints
-    wrappers.forEach(function(w) {
-      w.style.cssText += ';display:flex !important;align-items:center !important;justify-content:center !important;width:100% !important;height:auto !important;position:static !important;margin:0 !important;padding:0 !important;min-height:0 !important;max-height:none !important;overflow:visible !important;top:auto !important;left:auto !important;transform:none !important;';
-    });
-
-    // Re-allow fancytextwrapper to have padding for text inset
-    var ftw = document.getElementById('fancytextwrapper');
-    if (ftw) {
-      ftw.style.cssText += ';padding:0 15px !important;';
-    }
-
-    // Style the tagline element itself — no absolute positioning, just centered text
-    tagline.style.cssText += ';position:static !important;width:100% !important;text-align:center !important;transform:none !important;top:auto !important;left:auto !important;margin:0 auto !important;';
-
-    // Style the text span
-    var text = tagline.querySelector('.mycustfancy') || tagline.querySelector('.ultimate-typewriter-prefix');
-    if (text) {
-      text.style.cssText += ';text-align:center !important;display:block !important;font-size:28px !important;line-height:1.4 !important;';
+    var span = tagline.querySelector('.mycustfancy') || tagline.querySelector('.ultimate-typewriter-prefix');
+    if (span) {
+      span.style.textAlign = 'center';
+      span.style.fontSize = '28px';
+      span.style.lineHeight = '1.4';
     }
   }
 
-  // Apply immediately and re-apply to defeat any theme JS that runs later
-  centerTagline();
-  setTimeout(centerTagline, 300);
-  setTimeout(centerTagline, 1000);
-  setTimeout(centerTagline, 2500);
-  setTimeout(centerTagline, 5000);
-
-  // MutationObserver: if ANY wrapper's style changes, re-apply centering
-  var section = document.getElementById('fancy-text');
-  if (section && typeof MutationObserver !== 'undefined') {
-    var observer = new MutationObserver(function(mutations) {
-      centerTagline();
-    });
-    observer.observe(section, { attributes: true, attributeFilter: ['style', 'class'], subtree: true });
-    // Stop observing after 10 seconds to avoid performance issues
-    setTimeout(function() { observer.disconnect(); }, 10000);
-  }
+  fix();
+  setTimeout(fix, 500);
+  setTimeout(fix, 2000);
 })();
 </script>
 </body>
