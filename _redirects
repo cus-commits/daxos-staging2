@@ -1,0 +1,3 @@
+# Remove old team pages — return 410 Gone (tells search engines to de-index)
+/dc-team/*  /  410
+/team/*  /  410

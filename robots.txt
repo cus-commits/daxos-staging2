@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Block old team pages from crawling
+Disallow: /dc-team/
+Disallow: /team/
