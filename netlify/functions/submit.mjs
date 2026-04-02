@@ -64,23 +64,22 @@ export default async (req) => {
       try {
         const contactInfo = [data.email, data.telegram].filter(Boolean).join(" | ");
         const notes = [data.description, data.additional_info].filter(Boolean).join("\n\n");
+        const fields = {
+          "Company": data.company_name || "Unknown",
+          "Company Contacts": contactInfo,
+          "Source": "Website Application — " + timestamp,
+          "CRM Stage": "Website Applications"
+        };
+        if (notes) fields["Original Notes + Ongoing Negotiation Notes"] = notes;
+        if (data.company_website) fields["Company Link"] = data.company_website;
+        if (data.pitch_deck) fields["Pitch Deck Link"] = data.pitch_deck;
         const r = await fetch(`https://api.airtable.com/v0/${airtableBase}/${encodeURIComponent(airtableTable)}`, {
           method: "POST",
           headers: {
             "Authorization": "Bearer " + airtableKey,
             "Content-Type": "application/json"
           },
-          body: JSON.stringify({
-            fields: {
-              "Company": data.company_name || "",
-              "Company Link": data.company_website || "",
-              "Pitch Deck Link": data.pitch_deck || "",
-              "Company Contacts": contactInfo,
-              "Original Notes + Ongoing Negotiation Notes": notes,
-              "Source": "Website Application — " + timestamp,
-              "CRM Stage": "Website Application"
-            }
-          })
+          body: JSON.stringify({ fields })
         });
         if (r.ok) methods.push("airtable");
         else { const e = await r.text(); methods.push("airtable-err:" + r.status); }
