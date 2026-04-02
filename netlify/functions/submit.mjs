@@ -33,7 +33,7 @@ export default async (req) => {
           headers: { "Authorization": "Bearer " + resendKey, "Content-Type": "application/json" },
           body: JSON.stringify({
             from: "Daxos Apply <onboarding@resend.dev>",
-            to: "cus@daxos.capital",
+            to: "applications@daxos.capital",
             subject: "New Application: " + (data.company_name || "Unknown"),
             html: "<h2>New Daxos Capital Application</h2><br>" + fields + "<br><br><small>Submitted: " + timestamp + "</small>"
           })
