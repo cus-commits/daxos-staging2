@@ -241,28 +241,31 @@ a[href="/contact/"], a[href="/contact/"] span {
 .daxos-footer { position: fixed !important; bottom: 0 !important; left: 0 !important; right: 0 !important; z-index: 50 !important; }
 
 @media (max-width: 768px) {
-  .home-textblock { position: static !important; top: auto !important; }
-  #fancytextwrapper { padding: 0 20px !important; }
-  /* Force vertical + horizontal centering through entire WordPress wrapper chain */
-  .l-section.full_height,
-  .l-section.full_height > .l-section-h,
-  .l-section.full_height .g-cols,
-  .l-section.full_height .wpb_column,
-  .l-section.full_height .vc_column-inner,
-  .l-section.full_height .g-cols.rb-inner-col {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 100% !important;
-    min-height: inherit !important;
+  /* Direct positioning — bypass all WordPress wrapper layers */
+  #fancy-text {
+    position: relative !important;
+    min-height: calc(100vh - 120px) !important;
   }
-  /* Remove the border/padding box on mobile */
+  #uvc-type-wrap-7848,
+  .rb-home-tagline {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 85% !important;
+    text-align: center !important;
+  }
+  .mycustfancy, .ultimate-typewriter-prefix {
+    text-align: center !important;
+    display: block !important;
+    font-size: 28px !important;
+    line-height: 1.4 !important;
+  }
+  /* Remove border/padding box */
   #page-content .l-section-h.i-cf .wpb_wrapper {
     border: none !important;
     padding: 0 !important;
   }
-  .rb-home-tagline { text-align: center !important; }
-  .mycustfancy, .ultimate-typewriter-prefix { text-align: center !important; display: block !important; }
   .daxos-footer { padding: 12px 20px !important; font-size: 11px !important; }
 }
 </style>
