@@ -25,7 +25,8 @@ a { color: #fff; text-decoration: none; }
 
 .main { flex: 1; padding: 48px 48px 80px; max-width: 900px; }
 .page-title { font-family: "Source Code Pro", monospace; font-size: 42px; font-weight: 600; letter-spacing: 2px; margin-bottom: 12px; }
-.title-line { width: 48px; height: 2px; background: #4466ff; margin-bottom: 48px; }
+.title-line { width: 2px; height: 24px; background: #4466ff; margin-bottom: 48px; animation: blink 0.8s infinite; display: inline-block; vertical-align: text-bottom; }
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
 
 .typed-paragraph { font-size: 22px; color: #ddd; line-height: 2.0; letter-spacing: 0.01em; margin-bottom: 28px; font-family: "Source Code Pro", monospace; font-weight: 400; }
 .typed-paragraph .word { opacity: 0; display: inline; transition: opacity 0.3s ease; }

@@ -233,22 +233,22 @@ a[href="/contact/"], a[href="/contact/"] span {
 /* 24.45s cycle (3 × 8.15s). Coin 1 at ~28%, coin 2 at ~61%, coin 3 at ~95% */
 @keyframes coinFlash1 {
   0% { opacity: 0; transform: translate(-50%, -50%) rotate(0deg); }
-  27% { opacity: 0; transform: translate(-50%, -50%) rotate(25deg); }
-  28.5% { opacity: 0.4; transform: translate(-50%, -50%) rotate(25deg); }
-  31% { opacity: 0; transform: translate(-50%, -50%) rotate(25deg); }
+  26% { opacity: 0; transform: translate(-50%, -50%) rotate(25deg); }
+  28% { opacity: 0.4; transform: translate(-50%, -50%) rotate(25deg); }
+  31.3% { opacity: 0; transform: translate(-50%, -50%) rotate(25deg); }
   100% { opacity: 0; transform: translate(-50%, -50%) rotate(25deg); }
 }
 @keyframes coinFlash2 {
   0% { opacity: 0; transform: translate(-50%, -50%) rotate(0deg); }
-  60% { opacity: 0; transform: translate(-50%, -50%) rotate(5deg); }
-  61.5% { opacity: 0.2; transform: translate(-50%, -50%) rotate(5deg); }
-  64% { opacity: 0; transform: translate(-50%, -50%) rotate(5deg); }
+  59% { opacity: 0; transform: translate(-50%, -50%) rotate(5deg); }
+  61% { opacity: 0.2; transform: translate(-50%, -50%) rotate(5deg); }
+  64.3% { opacity: 0; transform: translate(-50%, -50%) rotate(5deg); }
   100% { opacity: 0; transform: translate(-50%, -50%) rotate(5deg); }
 }
 @keyframes coinFlash3 {
   0% { opacity: 0; transform: translate(-50%, -50%) rotate(0deg); }
-  93% { opacity: 0; transform: translate(-50%, -50%) rotate(10deg); }
-  94.5% { opacity: 0.3; transform: translate(-50%, -50%) rotate(10deg); }
+  91.7% { opacity: 0; transform: translate(-50%, -50%) rotate(10deg); }
+  93.7% { opacity: 0.3; transform: translate(-50%, -50%) rotate(10deg); }
   97% { opacity: 0; transform: translate(-50%, -50%) rotate(10deg); }
   100% { opacity: 0; transform: translate(-50%, -50%) rotate(10deg); }
 }
@@ -275,9 +275,10 @@ a[href="/contact/"], a[href="/contact/"] span {
 <style>
 /* Hide WordPress header entirely, use clean nav instead */
 #page-header { display: none !important; }
-/* Put typed word on its own line, aligned under tagline text */
+/* Typed word inline with cursor next to it */
 .ultimate-typed-main, #typed-400673291369cc247d7f51a { display: block !important; }
-.typed-cursor { display: inline-block !important; }
+.typed-cursor { display: inline-block !important; color: #4466ff !important; font-weight: 300 !important; animation: blink 0.8s infinite !important; }
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
 .clean-nav { display: flex; justify-content: space-between; align-items: center; padding: 28px 48px; border-bottom: 1px solid #1a1a1a; position: relative; z-index: 20; background: #000; }
 .clean-nav .nav-logo { border: 0.8px solid #fff; padding: 6px 12px; font-size: 17px; letter-spacing: 1px; color: #fff; text-decoration: none; }
 .clean-nav .nav-burger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; }
@@ -298,7 +299,9 @@ a[href="/contact/"], a[href="/contact/"] span {
   #fancy-text > .l-section-h { display: flex !important; align-items: center !important; justify-content: center !important; width: 100% !important; margin-top: -12vh !important; }
   .rb-home-tagline { text-align: center !important; }
   .mycustfancy, .ultimate-typewriter-prefix { text-align: center !important; }
-  .daxos-footer { padding: 12px 20px !important; font-size: 11px !important; }
+  .daxos-footer { padding: 6px 16px !important; font-size: 10px !important; gap: 6px !important; }
+  .daxos-footer-links { gap: 5px !important; }
+  .daxos-footer-copy { display: inline !important; }
 }
 </style>
 <!-- WordPress nav order CSS removed — using clean nav instead -->
