@@ -59,7 +59,7 @@ export default async (req) => {
     // METHOD 4: Airtable — persistent database of all applications
     const airtableKey = process.env.AIRTABLE_API_KEY;
     const airtableBase = process.env.AIRTABLE_BASE_ID;
-    const airtableTable = process.env.AIRTABLE_TABLE || "Applications";
+    const airtableTable = process.env.AIRTABLE_TABLE || "Website Applications";
     if (airtableKey && airtableBase) {
       try {
         const r = await fetch(`https://api.airtable.com/v0/${airtableBase}/${encodeURIComponent(airtableTable)}`, {
