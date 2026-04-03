@@ -276,7 +276,7 @@ a[href="/contact/"], a[href="/contact/"] span {
 #page-header { display: none !important; }
 /* Typed word and cursor inline, on new line under tagline */
 .mycustfancy, .ultimate-typewriter-prefix { display: block !important; }
-.ultimate-typed-main, #typed-400673291369cc247d7f51a { display: inline !important; margin-left: 1ch !important; }
+.ultimate-typed-main, #typed-400673291369cc247d7f51a { display: inline !important; position: relative !important; left: 2ch !important; }
 .typed-cursor { display: inline !important; color: #4466ff !important; font-weight: 300 !important; animation: blink 0.8s infinite !important; }
 @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
 .clean-nav { display: flex; justify-content: space-between; align-items: center; padding: 28px 48px; border-bottom: 1px solid #1a1a1a; position: relative; z-index: 20; background: #000; }
@@ -295,7 +295,7 @@ a[href="/contact/"], a[href="/contact/"] span {
 }
 .l-section.full_height { min-height: calc(100vh - 70px) !important; max-height: calc(100vh - 70px) !important; overflow: hidden !important; }
 .daxos-footer { position: fixed !important; bottom: 0 !important; left: 0 !important; right: 0 !important; z-index: 50 !important; }
-#fancy-text > .l-section-h { margin-top: -20vh !important; }
+#fancy-text > .l-section-h { transform: translateY(-20vh) !important; }
 @media (max-width: 768px) {
   #fancy-text { display: flex !important; align-items: center !important; justify-content: center !important; }
   #fancy-text > .l-section-h { display: flex !important; align-items: center !important; justify-content: center !important; width: 100% !important; margin-top: -40vh !important; }
