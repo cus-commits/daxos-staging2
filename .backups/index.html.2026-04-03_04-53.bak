@@ -272,46 +272,33 @@ a[href="/contact/"], a[href="/contact/"] span {
 }
 </style>
 <style>
-/* Override WP theme body defaults */
-body { background: #000 !important; margin: 0 !important; padding: 0 !important; }
-html { font-size: 16px !important; }
 /* Hide WordPress header entirely, use clean nav instead */
 #page-header { display: none !important; }
 /* Typed word and cursor inline, on new line under tagline */
 .mycustfancy, .ultimate-typewriter-prefix { display: block !important; }
-.ultimate-typed-main, #typed-400673291369cc247d7f51a { display: inline !important; margin-left: 1ch !important; }
-.typed-cursor { display: inline !important; color: #1535c8 !important; font-weight: 300 !important; animation: blink 0.8s infinite !important; }
+.ultimate-typed-main, #typed-400673291369cc247d7f51a { display: inline !important; }
+.typed-cursor { display: inline !important; color: #4466ff !important; font-weight: 300 !important; animation: blink 0.8s infinite !important; }
 @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
-#daxos-nav { display: flex; justify-content: space-between; align-items: center; padding: 14px 48px; border-bottom: 1px solid #1a1a1a; position: relative; z-index: 20; background: #000; box-sizing: border-box; width: 100%; }
-#daxos-nav .nav-logo { border: 0.8px solid #fff; padding: 6px 12px; font-size: 17px; letter-spacing: 1px; color: #fff; text-decoration: none; font-family: "Roboto Mono", monospace; }
-#daxos-nav .nav-burger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; }
-#daxos-nav .nav-burger div { width: 24px; height: 1.5px; background: #fff; }
-.nav-menu { display: none; position: fixed; inset: 0; background: #000; z-index: 100; flex-direction: column; align-items: center; justify-content: center; }
-.nav-menu.open { display: flex; }
-.nav-menu a { display: block; padding: 18px 32px; font-size: 18px; letter-spacing: 3px; text-transform: uppercase; color: #888; text-decoration: none; transition: color 0.2s; }
-.nav-menu a:hover, .nav-menu a.active { color: #fff; }
-.nav-close { position: absolute; top: 14px; right: 48px; font-size: 28px; cursor: pointer; color: #666; }
+.clean-nav { display: flex; justify-content: space-between; align-items: center; padding: 28px 48px; border-bottom: 1px solid #1a1a1a; position: relative; z-index: 20; background: #000; }
+.clean-nav .nav-logo { border: 0.8px solid #fff; padding: 6px 12px; font-size: 17px; letter-spacing: 1px; color: #fff; text-decoration: none; }
+.clean-nav .nav-burger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; }
+.clean-nav .nav-burger div { width: 24px; height: 1.5px; background: #fff; }
+.clean-nav-menu { display: none; position: fixed; inset: 0; background: #000; z-index: 100; flex-direction: column; align-items: center; justify-content: center; }
+.clean-nav-menu.open { display: flex; }
+.clean-nav-menu a { display: block; padding: 18px 32px; font-size: 18px; letter-spacing: 3px; text-transform: uppercase; color: #888; text-decoration: none; transition: color 0.2s; }
+.clean-nav-menu a:hover, .clean-nav-menu a.active { color: #fff; }
+.clean-nav-close { position: absolute; top: 28px; right: 48px; font-size: 28px; cursor: pointer; color: #666; }
 @media (max-width: 768px) {
-  #daxos-nav { padding: 8px 20px; }
-  #daxos-nav .nav-logo { font-size: 13px; padding: 6px 16px; }
-  .nav-close { top: 8px; right: 20px; }
+  .clean-nav { padding: 10px 16px; }
+  .clean-nav-close { top: 10px; right: 16px; }
 }
 .l-section.full_height { min-height: calc(100vh - 70px) !important; max-height: calc(100vh - 70px) !important; overflow: hidden !important; }
 .daxos-footer { position: fixed !important; bottom: 0 !important; left: 0 !important; right: 0 !important; z-index: 50 !important; }
-#funding-box { position: fixed; bottom: 112px; left: 50%; transform: translateX(-50%); z-index: 49; background: #000; border: 2px solid #4466ff; padding: 12px 24px; font-family: "Roboto Mono", monospace; font-size: 18px; letter-spacing: 2px; white-space: nowrap; text-align: center; }
-#funding-box a { color: #fff; text-decoration: none; display: block; text-align: center; }
-#funding-box .apply-word { color: #4466ff; }
-#funding-box a:hover { text-decoration: underline; }
-@media (max-width: 768px) {
-  #funding-box { bottom: 90px; left: 50%; transform: translateX(-50%); font-size: 10px; padding: 6px 12px; }
-}
-#fancy-text > .l-section-h { transform: translateY(-2vh) !important; }
 @media (max-width: 768px) {
   #fancy-text { display: flex !important; align-items: center !important; justify-content: center !important; }
-  #fancy-text > .l-section-h { display: flex !important; align-items: center !important; justify-content: center !important; width: 100% !important; transform: translateY(-15vh) !important; }
+  #fancy-text > .l-section-h { display: flex !important; align-items: center !important; justify-content: center !important; width: 100% !important; margin-top: -12vh !important; }
   .rb-home-tagline { text-align: center !important; }
-  .mycustfancy, .ultimate-typewriter-prefix { display: inline !important; text-align: center !important; }
-  .ultimate-typed-main, #typed-400673291369cc247d7f51a { position: static !important; }
+  .mycustfancy, .ultimate-typewriter-prefix { text-align: center !important; }
   .daxos-footer { padding: 6px 12px !important; font-size: 9px !important; gap: 4px !important; flex-wrap: nowrap !important; white-space: nowrap !important; }
   .daxos-footer-links { gap: 4px !important; }
   .daxos-footer .dot { margin: 0 1px !important; }
@@ -325,14 +312,14 @@ html { font-size: 16px !important; }
 <div class="coin-flash"></div>
 <div class="coin-flash-2"></div>
 <div class="coin-flash-3"></div>
-<div id="daxos-nav">
+<div class="clean-nav">
   <a href="/" class="nav-logo">daxos.capital</a>
-  <div class="nav-burger" onclick="document.querySelector('.nav-menu').classList.toggle('open')">
+  <div class="nav-burger" onclick="document.querySelector('.clean-nav-menu').classList.toggle('open')">
     <div></div><div></div><div></div>
   </div>
 </div>
-<div class="nav-menu">
-  <div class="nav-close" onclick="this.parentElement.classList.remove('open')">&times;</div>
+<div class="clean-nav-menu">
+  <div class="clean-nav-close" onclick="this.parentElement.classList.remove('open')">&times;</div>
   <a href="/">Home</a>
   <a href="/portfolio/">Portfolio</a>
   <a href="/contact/">Contact</a>
@@ -349,7 +336,7 @@ html { font-size: 16px !important; }
     </div>
     <!-- nav-right -->
   </nav></div><div class="w-menu ush_additional_menu_1 daxos-menu-sidebar layout_hor"><ul id="menu-main-menu-1" class="menu"><li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-3034"><a href="/" aria-current="page">Home</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5360"><a href="/about/">About Us</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5361"><a href="/portfolio/">Portfolio</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5396"><a href="/contact/">Contact</a></li></ul></div></div></div></div><div class="l-subheader at_bottom"><div class="l-subheader-h"><div class="l-subheader-cell at_left"><div class="w-html ush_html_2"><a href="/"><h1 id="animatedaxoslogo" class="rb-home-exos" style="text-align: left;">daxos.capital</h1></a></div></div><div class="l-subheader-cell at_center"></div><div class="l-subheader-cell at_right"></div></div></div><div class="l-subheader for_hidden hidden"></div></header><main id="page-content" class="l-main" itemprop="mainContentOfPage">
-	<section class="l-section wpb_row height_small full_height valign_center width_full" id="fancy-text"><div class="l-section-h i-cf"><div class="g-cols vc_row via_grid cols_1 laptops-cols_inherit tablets-cols_inherit mobiles-cols_1 valign_middle type_default stacking_default" style="grid-gap:0;"><div class="wpb_column vc_column_container"><div class="vc_column-inner"><div class="g-cols wpb_row rb-inner-col via_grid cols_1 laptops-cols_inherit tablets-cols_inherit mobiles-cols_1 valign_middle type_default stacking_default" style="grid-gap:0;"><div class="wpb_column vc_column_container" id="fancytextwrapper"><div class="vc_column-inner"><div id="uvc-type-wrap-7848"  data-ultimate-target='#uvc-type-wrap-7848'  data-responsive-json-new='{"font-size":"desktop:55px;tablet:40px;mobile:30px;","line-height":"desktop:100px;"}'  class="uvc-type-wrap  vc_custom_1725496602418 ult-adjust-bottom-margin ult-responsive rb-home-tagline uvc-type-align-center  uvc-wrap-400673291369cc247d7f51a" style="text-align:center;"><span  data-ultimate-target='#uvc-type-wrap-7848 .mycustfancy'  data-responsive-json-new='{"font-size":"desktop:55px;tablet:40px;mobile:30px;","line-height":"desktop:100px;"}'  class="ultimate-typewriter-prefix mycustfancy ult-responsive" style="font-weight:normal;color:#ffffff; text-transform: unset;">daxos capital is an early stage angel fund supporting founders and their mission to disrupt</span><span id="typed-400673291369cc247d7f51a" class="ultimate-typed-main " style="color:#ffffff; font-weight:normal; text-transform: unset;"></span><script type="text/javascript"> 
+	<section class="l-section wpb_row height_small full_height valign_center width_full" id="fancy-text"><div class="l-section-h i-cf"><div class="g-cols vc_row via_grid cols_1 laptops-cols_inherit tablets-cols_inherit mobiles-cols_1 valign_middle type_default stacking_default" style="grid-gap:0;"><div class="wpb_column vc_column_container"><div class="vc_column-inner"><div class="g-cols wpb_row rb-inner-col via_grid cols_1 laptops-cols_inherit tablets-cols_inherit mobiles-cols_1 valign_middle type_default stacking_default" style="grid-gap:0;"><div class="wpb_column vc_column_container" id="fancytextwrapper"><div class="vc_column-inner"><div id="uvc-type-wrap-7848"  data-ultimate-target='#uvc-type-wrap-7848'  data-responsive-json-new='{"font-size":"desktop:55px;tablet:40px;mobile:30px;","line-height":"desktop:100px;"}'  class="uvc-type-wrap  vc_custom_1725496602418 ult-adjust-bottom-margin ult-responsive rb-home-tagline uvc-type-align-center  uvc-wrap-400673291369cc247d7f51a" style="text-align:center;"><span  data-ultimate-target='#uvc-type-wrap-7848 .mycustfancy'  data-responsive-json-new='{"font-size":"desktop:55px;tablet:40px;mobile:30px;","line-height":"desktop:100px;"}'  class="ultimate-typewriter-prefix mycustfancy ult-responsive" style="font-weight:normal;color:#ffffff; text-transform: unset;">daxos capital is a seed stage angel fund supporting founders and their mission to disrupt</span><span id="typed-400673291369cc247d7f51a" class="ultimate-typed-main " style="color:#ffffff; font-weight:normal; text-transform: unset;"></span><script type="text/javascript"> 
 						jQuery(function($){ 
 							$(document).ready(function(){
 								if( typeof jQuery("#typed-400673291369cc247d7f51a").typed == "function"){
@@ -463,29 +450,6 @@ const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(
 //# sourceURL=wp-includes/js/wp-emoji-loader.min.js
 </script>
 <script>
-
-// Inject funding box above footer
-(function() {
-  var box = document.createElement('div');
-  box.id = 'funding-box';
-  box.innerHTML = '<a href="/contact/">NEED FUNDING? &rsaquo;&rsaquo;&rsaquo; <span class="apply-word">APPLY</span></a>';
-  document.body.appendChild(box);
-})();
-
-// Force nav to match about page exactly — inline styles beat all CSS including WP
-(function() {
-  var isMobile = window.innerWidth <= 768;
-  var nav = document.getElementById('daxos-nav');
-  if (!nav) return;
-  nav.setAttribute('style', 'display:flex;justify-content:space-between;align-items:center;padding:' + (isMobile ? '8px 20px' : '14px 48px') + ';border-bottom:1px solid #1a1a1a;background:#000;z-index:20;position:relative;width:100%;box-sizing:border-box;');
-  var logo = nav.querySelector('.nav-logo');
-  if (logo) logo.setAttribute('style', 'border:0.8px solid #fff;padding:' + (isMobile ? '6px 16px' : '6px 12px') + ';font-size:' + (isMobile ? '13px' : '17px') + ';letter-spacing:1px;color:#fff;text-decoration:none;font-family:"Roboto Mono",monospace;line-height:1.2;margin:0;display:inline-block;box-sizing:border-box;');
-  var burger = nav.querySelector('.nav-burger');
-  if (burger) burger.setAttribute('style', 'display:flex;flex-direction:column;gap:5px;cursor:pointer;');
-  var lines = nav.querySelectorAll('.nav-burger div');
-  for (var i = 0; i < lines.length; i++) { lines[i].setAttribute('style', 'width:24px;height:1.5px;background:#fff;display:block;'); }
-})();
-
 jQuery( document ).ready(function() {
    jQuery('.ush_menu_1 .w-nav-control:not(.active)').on('click', function(e){
 	   e.preventDefault();

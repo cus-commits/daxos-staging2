@@ -11,7 +11,7 @@
 body { background: #000; color: #fff; font-family: "Roboto Mono", monospace; min-height: 100vh; display: flex; flex-direction: column; }
 a { color: #fff; text-decoration: none; }
 
-.nav { display: flex; justify-content: space-between; align-items: center; padding: 14px 48px; border-bottom: 1px solid #1a1a1a; }
+.nav { display: flex; justify-content: space-between; align-items: center; padding: 28px 48px; border-bottom: 1px solid #1a1a1a; }
 .nav-logo { border: 0.8px solid #fff; padding: 6px 12px; font-size: 17px; letter-spacing: 1px; }
 .nav-burger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; }
 .nav-burger div { width: 24px; height: 1.5px; background: #fff; }
@@ -67,7 +67,7 @@ a { color: #fff; text-decoration: none; }
 .daxos-footer-copy { color: #333; }
 
 @media (max-width: 768px) {
-  .nav { padding: 8px 20px; }
+  .nav { padding: 16px 20px; }
   .nav-logo { font-size: 13px; padding: 6px 16px; }
   .nav-close { top: 16px; right: 20px; }
 }
@@ -161,7 +161,7 @@ a { color: #fff; text-decoration: none; }
     <a class="portfolio-item" href="https://hirechain.io" target="_blank">
       <img src="/wp-content/uploads/2024/08/hirechain.svg" alt="HireChain">
     </a>
-    <a class="portfolio-item" href="https://raze.finance" target="_blank">
+    <a class="portfolio-item" href="https://raze.bot" target="_blank">
       <img src="/wp-content/uploads/2025/07/Raze-Logo-FINAL.webp" alt="Raze">
     </a>
     <a class="portfolio-item" href="https://worm.wtf" target="_blank">
