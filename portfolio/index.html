@@ -4,6 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portfolio | Daxos|Capital</title>
+<meta name="description" content="Daxos Capital — angel investors funding pre-seed and seed stage startups in finance, payments, exchanges, DeFi, tech and AI.">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="../wp-content/uploads/2025/07/favicon-1-150x150.png" sizes="32x32">
+<link rel="icon" href="../wp-content/uploads/2025/07/favicon-1-298x300.png" sizes="192x192">
+<link rel="apple-touch-icon" href="../wp-content/uploads/2025/07/favicon-1-298x300.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Portfolio | Daxos Capital">
+<meta property="og:description" content="Angel investors. Pre-seed / seed checks for finance, payments, exchanges, DeFi, tech, AI.">
+<meta property="og:site_name" content="Daxos Capital">
+<meta property="og:image" content="../wp-content/uploads/2025/07/favicon-1.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Portfolio | Daxos Capital">
+<meta name="twitter:description" content="Angel investors. Pre-seed / seed checks.">
+<meta name="twitter:image" content="../wp-content/uploads/2025/07/favicon-1.png">
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;700&display=swap');
@@ -13,17 +27,39 @@ a { color: #fff; text-decoration: none; }
 
 .nav { display: flex; justify-content: space-between; align-items: center; padding: 14px 48px; border-bottom: 1px solid #1a1a1a; }
 .nav-logo { border: 0.8px solid #fff; padding: 6px 12px; font-size: 17px; letter-spacing: 1px; }
-.nav-burger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; }
-.nav-burger div { width: 24px; height: 1.5px; background: #fff; }
-.nav-menu { display: none; position: fixed; inset: 0; background: #000; z-index: 100; flex-direction: column; align-items: center; justify-content: center; }
+.nav-burger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; position: relative; width: 36px; height: 32px; box-sizing: border-box; align-items: center; justify-content: center; }
+.nav-burger div { width: 24px; height: 1.5px; background: #fff; transition: transform 0.35s cubic-bezier(.7,0,.3,1), opacity 0.2s ease; transform-origin: center; position: absolute; }
+.nav-burger div:nth-child(1) { transform: translateY(-7px); }
+.nav-burger div:nth-child(2) { transform: translateY(0); }
+.nav-burger div:nth-child(3) { transform: translateY(7px); }
+.nav-burger.open div:nth-child(1) { transform: translateY(0) rotate(45deg); }
+.nav-burger.open div:nth-child(2) { opacity: 0; transform: translateX(-8px); }
+.nav-burger.open div:nth-child(3) { transform: translateY(0) rotate(-45deg); }
+.nav-menu { display: none; position: fixed; inset: 0; z-index: 100; flex-direction: column; align-items: center; justify-content: center; background: radial-gradient(ellipse at center, #050505 0%, #000 70%); }
 .nav-menu.open { display: flex; }
-.nav-menu a { display: block; padding: 18px 32px; font-size: 18px; letter-spacing: 3px; text-transform: uppercase; color: #888; text-decoration: none; transition: color 0.2s; }
-.nav-menu a:hover, .nav-menu a.active { color: #fff; }
-.nav-close { position: absolute; top: 28px; right: 48px; font-size: 28px; cursor: pointer; color: #666; }
+.nav-menu a { position: relative; display: flex; align-items: center; gap: 18px; padding: 12px 0; font-size: 18px; letter-spacing: 2px; text-transform: uppercase; color: #888; font-family: "Source Code Pro", monospace; font-weight: 500; text-decoration: none; transition: color 0.2s ease; }
+.nav-menu a:hover { color: #fff; }
+.nav-menu a:hover .num { color: #4466ff; opacity: 1; }
+.nav-menu a:hover .lbl::after, .nav-menu a.active .lbl::after { width: 12px; }
+.nav-menu a.active { color: #fff; }
+.nav-menu a.active .num { color: #4466ff; opacity: 1; }
+.nav-menu a .num { font-size: 11px; color: #444; font-family: "Source Code Pro", monospace; font-weight: 400; letter-spacing: 1px; opacity: 0.6; transition: opacity 0.2s, color 0.2s; }
+.nav-menu a .lbl { position: relative; }
+.nav-menu a .lbl::after { content: ""; position: absolute; right: -14px; top: 50%; width: 0; height: 1px; background: #4466ff; transition: width 0.25s ease; }
+.nav-close { position: absolute; top: 16px; right: 32px; font-size: 11px; letter-spacing: 2px; font-family: "Source Code Pro", monospace; cursor: pointer; color: #555; transition: color 0.25s ease; display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px; }
+.nav-close .glyph { display: inline-block; transition: transform 0.4s cubic-bezier(.7,0,.3,1); }
+.nav-close:hover { color: #fff; }
+.nav-close:hover .glyph { transform: rotate(90deg); }
 
 .main { flex: 1; padding: 48px; }
-.page-title { font-family: "Source Code Pro", monospace; font-size: 42px; font-weight: 600; letter-spacing: 2px; margin-bottom: 12px; }
-.title-line { width: 48px; height: 2px; background: #4466ff; margin-bottom: 48px; }
+.page-marker { font-family: "Source Code Pro", monospace; font-size: 11px; letter-spacing: 3px; color: #555; margin-bottom: 14px; opacity: 0; transform: translateY(4px); animation: markerIn 0.5s ease 0.1s forwards; }
+.page-marker .num { color: #4466ff; }
+.page-marker .sep { color: #2a2a2a; margin: 0 6px; }
+.page-title { font-family: "Source Code Pro", monospace; font-size: 42px; font-weight: 600; letter-spacing: 2px; margin-bottom: 14px; opacity: 0; transform: translateY(6px); animation: titleIn 0.6s ease 0.2s forwards; }
+.title-line { width: 48px; height: 1px; background: #4466ff; margin-bottom: 48px; transform: scaleX(0); transform-origin: left center; animation: lineIn 0.6s ease 0.5s forwards; }
+@keyframes markerIn { to { opacity: 1; transform: translateY(0); } }
+@keyframes titleIn { to { opacity: 1; transform: translateY(0); } }
+@keyframes lineIn { to { transform: scaleX(1); } }
 
 .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; width: 100%; max-width: 1400px; }
 
@@ -34,52 +70,124 @@ a { color: #fff; text-decoration: none; }
   align-items: center;
   justify-content: center;
   min-height: 180px;
-  transition: all 0.4s ease;
+  transition: border-color 0.4s ease, background 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
   cursor: pointer;
   opacity: 0;
   transform: translateX(-30px);
+  position: relative;
+  overflow: hidden;
 }
 .portfolio-item.visible {
   opacity: 1;
   transform: translateX(0);
 }
+/* Corner bracket accents — draw in on hover */
+.portfolio-item::before,
+.portfolio-item::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 1px solid #4466ff;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.4s cubic-bezier(.7,0,.3,1);
+  pointer-events: none;
+}
+.portfolio-item::before {
+  top: 8px; left: 8px;
+  border-right: none; border-bottom: none;
+  transform: translate(4px, 4px);
+}
+.portfolio-item::after {
+  bottom: 8px; right: 8px;
+  border-left: none; border-top: none;
+  transform: translate(-4px, -4px);
+}
 .portfolio-item:hover {
   border-color: #4466ff;
-  background: rgba(68, 102, 255, 0.04);
-  transform: scale(1.02);
+  background: rgba(68, 102, 255, 0.05);
+  transform: scale(1.025);
+  box-shadow: 0 8px 24px rgba(68, 102, 255, 0.12), 0 0 0 1px rgba(68, 102, 255, 0.15);
+}
+.portfolio-item:hover::before,
+.portfolio-item:hover::after {
+  opacity: 1;
+  transform: translate(0, 0);
 }
 .portfolio-item img {
   max-width: 200px;
   max-height: 70px;
   object-fit: contain;
-  filter: brightness(0.85);
-  transition: filter 0.3s;
+  filter: brightness(0.7) saturate(0.85);
+  transition: filter 0.4s ease, transform 0.4s cubic-bezier(.7,0,.3,1);
+  position: relative;
+  z-index: 1;
 }
 .portfolio-item:hover img {
-  filter: brightness(1.1);
+  filter: brightness(1.15) saturate(1);
+  transform: scale(1.06) translateY(-8px);
 }
 
-.daxos-footer { padding: 20px 48px; border-top: 1px solid #1a1a1a; display: flex; justify-content: center; align-items: center; font-size: 13px; color: #444; letter-spacing: 1px; gap: 16px; flex-wrap: wrap; background: #000; }
-.daxos-footer-links { display: flex; gap: 8px; align-items: center; }
-.daxos-footer-links a { color: #555; text-decoration: none; transition: color 0.2s; }
+/* Hover-revealed company label + external arrow */
+.tile-label {
+  position: absolute;
+  bottom: 14px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: "Source Code Pro", monospace;
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #4466ff;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.3s ease, transform 0.35s cubic-bezier(.7,0,.3,1);
+  pointer-events: none;
+  z-index: 2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 12px;
+}
+.portfolio-item:hover .tile-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+.tile-label .arrow {
+  display: inline-block;
+  margin-left: 6px;
+  transition: transform 0.3s cubic-bezier(.7,0,.3,1);
+}
+.portfolio-item:hover .tile-label .arrow {
+  transform: translate(2px, -2px);
+}
+
+.daxos-footer { padding: 22px 48px; border-top: 1px solid #141414; display: flex; justify-content: center; align-items: center; font-size: 12px; color: #444; letter-spacing: 1.5px; gap: 16px; flex-wrap: wrap; background: #000; font-family: "Source Code Pro", monospace; }
+.daxos-footer-links { display: flex; gap: 10px; align-items: center; }
+.daxos-footer-links a { color: #666; text-decoration: none; position: relative; padding: 4px 2px; transition: color 0.25s ease; }
+.daxos-footer-links a::after { content: ""; position: absolute; left: 2px; right: 2px; bottom: 0; height: 1px; background: #4466ff; transform: scaleX(0); transform-origin: left center; transition: transform 0.3s ease; }
 .daxos-footer-links a:hover { color: #fff; }
-.daxos-footer-links .dot { color: #333; }
-.daxos-footer-copy { color: #333; }
+.daxos-footer-links a:hover::after { transform: scaleX(1); }
+.daxos-footer-links .dot { color: #2a2a2a; }
+.daxos-footer-copy { color: #333; letter-spacing: 1px; }
 
 @media (max-width: 768px) {
   .nav { padding: 8px 20px; }
   .nav-logo { font-size: 13px; padding: 6px 16px; }
   .nav-close { top: 16px; right: 20px; }
+  .nav-burger { width: 44px; height: 44px; }
 }
 @media (max-width: 1200px) {
   .main { padding: 24px 20px; }
   .page-title { font-size: 24px; }
+  .page-marker { font-size: 10px; letter-spacing: 2px; }
   .daxos-footer { padding: 16px 20px; }
   .portfolio-grid {
     grid-template-columns: repeat(2, minmax(0, 150px)) !important;
-    gap: 8px !important;
-    margin: 0 !important;
-    justify-content: start !important;
+    gap: 12px !important;
+    margin: 0 auto !important;
+    justify-content: center !important;
   }
   .portfolio-item {
     padding: 10px !important;
@@ -98,93 +206,98 @@ a { color: #fff; text-decoration: none; }
 <style>
 /* Force nav order: Home(3034), Portfolio(5361), Contact(5396), About Us(5360) */
 .w-nav-list.level_1, #menu-main-menu-1, .w-menu .menu { display: flex !important; flex-direction: column !important; }
-.menu-item-3034, li:has(a[href="/"]) { order: 1 !important; }
-.menu-item-5361, li:has(a[href="/portfolio/"]) { order: 2 !important; }
-.menu-item-5396, li:has(a[href="/contact/"]) { order: 3 !important; }
-.menu-item-5360, li:has(a[href="/about/"]) { order: 4 !important; }
+.menu-item-3034, li:has(a[href="../index.html"]) { order: 1 !important; }
+.menu-item-5361, li:has(a[href="../portfolio/index.html"]) { order: 2 !important; }
+.menu-item-5396, li:has(a[href="../contact/index.html"]) { order: 3 !important; }
+.menu-item-5360, li:has(a[href="../about/index.html"]) { order: 4 !important; }
+</style>
+
+<style id="daxos-page-transition">
+body.daxos-leaving { opacity: 0 !important; transition: opacity 0.22s ease; }
 </style>
 </head>
 <body>
 
 <div class="nav">
-  <a href="/" class="nav-logo">daxos.capital</a>
-  <div class="nav-burger" onclick="document.querySelector('.nav-menu').classList.toggle('open')">
+  <a class='nav-logo' href='/'>daxos.capital</a>
+  <div class="nav-burger" onclick="this.classList.toggle('open');document.querySelector('.nav-menu').classList.toggle('open')">
     <div></div><div></div><div></div>
   </div>
 </div>
 <div class="nav-menu">
-  <div class="nav-close" onclick="this.parentElement.classList.remove('open')">&times;</div>
-  <a href="/">Home</a>
-  <a href="/portfolio/">Portfolio</a>
-  <a href="/contact/">Contact</a>
-  <a href="/about/">About Us</a>
+  <div class="nav-close" onclick="this.parentElement.classList.remove('open');document.querySelector('.nav-burger').classList.remove('open')"><svg class="glyph" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="1" y1="1" x2="13" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="13" y1="1" x2="1" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span>ESC</span></div>
+  <a href='/'><span class="num">01</span><span class="lbl">Home</span></a>
+  <a class='active' href='/portfolio/'><span class="num">02</span><span class="lbl">Portfolio</span></a>
+  <a href='/contact/'><span class="num">03</span><span class="lbl">Contact</span></a>
+  <a href='/about/'><span class="num">04</span><span class="lbl">About Us</span></a>
 </div>
 
 <div class="main">
+  <div class="page-marker"><span class="num">02</span><span class="sep">/</span>PORTFOLIO</div>
   <div class="page-title">PORTFOLIO</div>
   <div class="title-line"></div>
 
   <div class="portfolio-grid">
     <a class="portfolio-item" href="https://pump.fun/" target="_blank">
-      <img src="/wp-content/uploads/2025/07/pumfun.svg" alt="pump.fun">
+      <img src="../wp-content/uploads/2025/07/pumfun.png" alt="pump.fun" style="max-height:120px;">
     </a>
     <a class="portfolio-item" href="https://cobfoods.com" target="_blank">
-      <img src="/wp-content/uploads/2025/07/cobfoods2.webp" alt="Cob Foods" style="max-height:100px;">
+      <img src="../wp-content/uploads/2025/07/cobfoods2.webp" alt="Cob Foods" style="max-height:100px;">
     </a>
     <a class="portfolio-item" href="https://usdat.xyz" target="_blank">
-      <img src="/wp-content/uploads/2025/05/usdat.png" alt="Saturn">
+      <img src="../wp-content/uploads/2025/05/usdat.png" alt="Saturn">
     </a>
     <a class="portfolio-item" href="https://steel.dev/" target="_blank">
-      <img src="/wp-content/uploads/2025/08/steel.dev_.svg" alt="steel.dev">
+      <img src="../wp-content/uploads/2025/08/steel.dev_.svg" alt="steel.dev">
     </a>
     <a class="portfolio-item" href="https://www.xverse.app/" target="_blank">
-      <img src="/wp-content/uploads/2024/08/xverse.webp" alt="Xverse">
+      <img src="../wp-content/uploads/2024/08/xverse.webp" alt="Xverse">
     </a>
     <a class="portfolio-item" href="https://www.botanixlabs.xyz/en/home" target="_blank">
-      <img src="/wp-content/uploads/2024/08/botaxnixlabs.svg" alt="Botanix Labs">
+      <img src="../wp-content/uploads/2024/08/botaxnixlabs.svg" alt="Botanix Labs">
     </a>
     <a class="portfolio-item" href="https://bubblemaps.io/" target="_blank">
-      <img src="/wp-content/uploads/2024/08/bubblemaps-1.svg" alt="Bubblemaps">
+      <img src="../wp-content/uploads/2024/08/bubblemaps-1.svg" alt="Bubblemaps">
     </a>
     <a class="portfolio-item" href="https://www.kinddesigns.com/" target="_blank">
-      <img src="/wp-content/uploads/2025/07/kinddesigns.jpg" alt="Kind Designs" style="filter:invert(1) brightness(2);">
+      <img src="../wp-content/uploads/2025/07/kinddesigns.jpg" alt="Kind Designs" style="filter:invert(1) brightness(2);">
     </a>
     <a class="portfolio-item" href="https://en.trendex.vip/" target="_blank">
-      <img src="/wp-content/uploads/2024/08/trendex-white.png" alt="Trendex">
+      <img src="../wp-content/uploads/2024/08/trendex-white.png" alt="Trendex">
     </a>
     <a class="portfolio-item" href="https://www.ord.io" target="_blank">
-      <img src="/wp-content/uploads/2024/09/ord_logo.png" alt="Ord.io">
+      <img src="../wp-content/uploads/2024/09/ord_logo.png" alt="Ord.io">
     </a>
     <a class="portfolio-item" href="https://haloo.ai" target="_blank">
-      <img src="/wp-content/uploads/2024/09/haloo-logo.png" alt="Haloo">
+      <img src="../wp-content/uploads/2024/09/haloo-logo.png" alt="Haloo">
     </a>
     <a class="portfolio-item" href="https://pear.vc" target="_blank">
-      <img src="/wp-content/uploads/2024/09/pear_logo.png" alt="Pear">
+      <img src="../wp-content/uploads/2024/09/pear_logo.png" alt="Pear">
     </a>
     <a class="portfolio-item" href="https://hirechain.io" target="_blank">
-      <img src="/wp-content/uploads/2024/08/hirechain.svg" alt="HireChain">
+      <img src="../wp-content/uploads/2024/08/hirechain.svg" alt="HireChain">
     </a>
     <a class="portfolio-item" href="https://raze.finance" target="_blank">
-      <img src="/wp-content/uploads/2025/07/Raze-Logo-FINAL.webp" alt="Raze">
+      <img src="../wp-content/uploads/2025/07/Raze-Logo-FINAL.webp" alt="Raze">
     </a>
     <a class="portfolio-item" href="https://worm.wtf" target="_blank">
-      <img src="/wp-content/uploads/2025/07/wormwtf.png" alt="Worm" style="max-width:280px;max-height:120px;">
+      <img src="../wp-content/uploads/2025/07/wormwtf.png" alt="Worm" style="max-width:280px;max-height:120px;">
     </a>
     <a class="portfolio-item" href="https://vest.markets" target="_blank">
-      <img src="/wp-content/uploads/2025/07/vestmarkets.png" alt="Vest Markets" style="filter:brightness(1.8);">
+      <img src="../wp-content/uploads/2025/07/vestmarkets.png" alt="Vest Markets" style="filter:brightness(1.8);">
     </a>
     <a class="portfolio-item" href="https://thetaneurotech.com" target="_blank">
-      <img src="/wp-content/uploads/2025/05/thetaneurotech.png" alt="Theta Neurotech" style="max-height:100px;">
+      <img src="../wp-content/uploads/2025/05/thetaneurotech.png" alt="Theta Neurotech" style="max-height:100px;">
     </a>
   </div>
 </div>
 
 <div class="daxos-footer">
   <div class="daxos-footer-links">
-    <a href="/">Home</a><span class="dot">&middot;</span>
-    <a href="/portfolio/">Portfolio</a><span class="dot">&middot;</span>
-    <a href="/contact/">Contact</a><span class="dot">&middot;</span>
-    <a href="/about/">About Us</a>
+    <a href='/'>Home</a><span class="dot">&middot;</span>
+    <a href='/portfolio/'>Portfolio</a><span class="dot">&middot;</span>
+    <a href='/contact/'>Contact</a><span class="dot">&middot;</span>
+    <a href='/about/'>About Us</a>
   </div>
   <span class="daxos-footer-copy">&copy; 2026 daxos.capital</span>
 </div>
@@ -192,7 +305,19 @@ a { color: #fff; text-decoration: none; }
 <script>
 (function() {
   var items = document.querySelectorAll('.portfolio-item');
-  var delay = 90;
+  var delay = 150;
+  
+  // Inject hover labels from img alt text
+  items.forEach(function(item) {
+    var img = item.querySelector('img');
+    if (!img) return;
+    var name = img.getAttribute('alt') || '';
+    if (!name || item.querySelector('.tile-label')) return;
+    var label = document.createElement('span');
+    label.className = 'tile-label';
+    label.innerHTML = name + ' <span class="arrow">↗</span>';
+    item.appendChild(label);
+  });
   
   setTimeout(function() {
     items.forEach(function(item, i) {
@@ -204,5 +329,27 @@ a { color: #fff; text-decoration: none; }
 })();
 </script>
 
+
+<script id="daxos-page-transition-js">
+(function() {
+  // Fade out before navigating to internal pages
+  document.addEventListener('click', function(e) {
+    var a = e.target.closest('a');
+    if (!a) return;
+    var href = a.getAttribute('href');
+    if (!href) return;
+    // Skip external, anchors, mailto, tel, target=_blank, modifier keys
+    if (href.startsWith('http') && !href.includes('daxos.capital')) return;
+    if (href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href === '') return;
+    if (a.target === '_blank') return;
+    if (e.metaKey || e.ctrlKey || e.shiftKey) return;
+    // Only intercept .html links
+    if (!/\.html(\?|#|$)/.test(href) && !href.endsWith('/')) return;
+    e.preventDefault();
+    document.body.classList.add('daxos-leaving');
+    setTimeout(function() { window.location.href = href; }, 220);
+  });
+})();
+</script>
 </body>
 </html>

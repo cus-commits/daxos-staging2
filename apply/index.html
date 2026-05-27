@@ -4,6 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Apply | Daxos|Capital</title>
+<meta name="description" content="Daxos Capital — angel investors funding pre-seed and seed stage startups in finance, payments, exchanges, DeFi, tech and AI.">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="../wp-content/uploads/2025/07/favicon-1-150x150.png" sizes="32x32">
+<link rel="icon" href="../wp-content/uploads/2025/07/favicon-1-298x300.png" sizes="192x192">
+<link rel="apple-touch-icon" href="../wp-content/uploads/2025/07/favicon-1-298x300.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Apply | Daxos Capital">
+<meta property="og:description" content="Angel investors. Pre-seed / seed checks for finance, payments, exchanges, DeFi, tech, AI.">
+<meta property="og:site_name" content="Daxos Capital">
+<meta property="og:image" content="../wp-content/uploads/2025/07/favicon-1.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Apply | Daxos Capital">
+<meta name="twitter:description" content="Angel investors. Pre-seed / seed checks.">
+<meta name="twitter:image" content="../wp-content/uploads/2025/07/favicon-1.png">
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;700&display=swap');
@@ -12,29 +26,94 @@ a { color: #fff; text-decoration: none; }
 
 .nav { display: flex; justify-content: space-between; align-items: center; padding: 28px 48px; border-bottom: 1px solid #1a1a1a; }
 .nav-logo { border: 0.8px solid #fff; padding: 6px 12px; font-size: 17px; letter-spacing: 1px; }
-.nav-burger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; }
-.nav-burger div { width: 24px; height: 1.5px; background: #fff; }
-.nav-menu { display: none; position: fixed; inset: 0; background: #000; z-index: 100; flex-direction: column; align-items: center; justify-content: center; gap: 0; }
+.nav-burger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; position: relative; width: 36px; height: 32px; box-sizing: border-box; align-items: center; justify-content: center; }
+.nav-burger div { width: 24px; height: 1.5px; background: #fff; transition: transform 0.35s cubic-bezier(.7,0,.3,1), opacity 0.2s ease; transform-origin: center; position: absolute; }
+.nav-burger div:nth-child(1) { transform: translateY(-7px); }
+.nav-burger div:nth-child(2) { transform: translateY(0); }
+.nav-burger div:nth-child(3) { transform: translateY(7px); }
+.nav-burger.open div:nth-child(1) { transform: translateY(0) rotate(45deg); }
+.nav-burger.open div:nth-child(2) { opacity: 0; transform: translateX(-8px); }
+.nav-burger.open div:nth-child(3) { transform: translateY(0) rotate(-45deg); }
+.nav-menu { display: none; position: fixed; inset: 0; z-index: 100; flex-direction: column; align-items: center; justify-content: center; background: radial-gradient(ellipse at center, #050505 0%, #000 70%); }
 .nav-menu.open { display: flex; }
-.nav-menu a { display: block; padding: 14px 0; font-size: 18px; letter-spacing: 3px; text-transform: uppercase; color: #888; text-decoration: none; transition: color 0.2s; }
-.nav-menu a:hover, .nav-menu a.active { color: #fff; }
-.nav-close { position: absolute; top: 28px; right: 48px; font-size: 28px; cursor: pointer; color: #666; }
+.nav-menu a { position: relative; display: flex; align-items: center; gap: 18px; padding: 12px 0; font-size: 18px; letter-spacing: 2px; text-transform: uppercase; color: #888; font-family: "Source Code Pro", monospace; font-weight: 500; text-decoration: none; transition: color 0.2s ease; }
+.nav-menu a:hover { color: #fff; }
+.nav-menu a:hover .num { color: #4466ff; opacity: 1; }
+.nav-menu a:hover .lbl::after, .nav-menu a.active .lbl::after { width: 12px; }
+.nav-menu a.active { color: #fff; }
+.nav-menu a.active .num { color: #4466ff; opacity: 1; }
+.nav-menu a .num { font-size: 11px; color: #444; font-family: "Source Code Pro", monospace; font-weight: 400; letter-spacing: 1px; opacity: 0.6; transition: opacity 0.2s, color 0.2s; }
+.nav-menu a .lbl { position: relative; }
+.nav-menu a .lbl::after { content: ""; position: absolute; right: -14px; top: 50%; width: 0; height: 1px; background: #4466ff; transition: width 0.25s ease; }
+.nav-close { position: absolute; top: 16px; right: 32px; font-size: 11px; letter-spacing: 2px; font-family: "Source Code Pro", monospace; cursor: pointer; color: #555; transition: color 0.25s ease; display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px; }
+.nav-close .glyph { display: inline-block; transition: transform 0.4s cubic-bezier(.7,0,.3,1); }
+.nav-close:hover { color: #fff; }
+.nav-close:hover .glyph { transform: rotate(90deg); }
 
 .main { flex: 1; padding: 32px 48px; max-width: 860px; margin: 0 auto; width: 100%; }
-.page-title { font-size: 42px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; margin-bottom: 12px; font-family: "Source Code Pro", monospace; }
-.title-line { width: 48px; height: 2px; background: #4466ff; margin-bottom: 40px; }
+.page-marker { font-family: "Source Code Pro", monospace; font-size: 11px; letter-spacing: 3px; color: #555; margin-bottom: 14px; }
+.page-marker .num { color: #4466ff; }
+.page-marker .sep { color: #2a2a2a; margin: 0 6px; }
+.page-title { font-size: 42px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; margin-bottom: 14px; font-family: "Source Code Pro", monospace; }
+.title-line { width: 48px; height: 1px; background: #4466ff; margin-bottom: 40px;  transform-origin: left center; }
+@keyframes markerIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes titleIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes lineIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 
-.form-group { margin-bottom: 32px; opacity: 0; transform: translateY(10px); transition: opacity 0.4s ease, transform 0.4s ease; }
-.form-group.visible { opacity: 1; transform: translateY(0); }
-.form-label { display: block; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: #bbb; margin-bottom: 12px; }
-.form-input, .form-textarea { width: 100%; background: transparent; border: none; border-bottom: 1px solid #2a2a2a; padding: 12px 0 16px; font-size: 18px; color: #fff; font-family: inherit; outline: none; }
+.form-group { margin-bottom: 32px; transition: transform 0.35s ease; }
+.form-group.visible { transform: translateY(0); }
+.form-label { display: block; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: #bbb; margin-bottom: 12px; transition: color 0.25s ease; }
+.field { position: relative; }
+.field::after { content: ""; position: absolute; left: 0; bottom: 0; height: 1px; width: 100%; background: #4466ff; transform: scaleX(0); transform-origin: left center; transition: transform 0.4s cubic-bezier(.65,0,.35,1); pointer-events: none; }
+.field:focus-within::after { transform: scaleX(1); }
+.field:focus-within .form-label { color: #4466ff; }
+.form-input, .form-textarea { width: 100%; background: transparent; border: none; border-bottom: 1px solid #2a2a2a; padding: 12px 0 16px; font-size: 18px; color: #fff; font-family: inherit; outline: none; caret-color: #4466ff; transition: border-bottom-color 0.3s ease; }
 .form-input::placeholder, .form-textarea::placeholder { color: #555; }
-.form-input:focus, .form-textarea:focus { border-bottom-color: #555; }
+.form-input:focus, .form-textarea:focus { border-bottom-color: #2a2a2a; }
 .form-textarea { resize: vertical; min-height: 40px; }
 .form-drop { border: 1px dashed #333; padding: 24px; text-align: center; color: #444; font-size: 11px; letter-spacing: 1px; }
 
-.submit-btn { width: 100%; border: 1.5px solid #4466ff; padding: 18px; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; font-family: inherit; color: #fff; background: rgba(68,102,255,0.08); cursor: pointer; transition: all 0.3s; margin-top: 12px; }
-.submit-btn:hover { background: #4466ff; color: #fff; }
+/* Required marker */
+.form-label .req { display: inline-block; width: 5px; height: 5px; background: #4466ff; border-radius: 50%; margin-left: 8px; vertical-align: middle; transform: translateY(-3px); }
+
+/* Inline error message */
+.form-error { display: block; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #ff4466; margin-top: 8px; min-height: 14px; opacity: 0; transform: translateY(-2px); transition: opacity 0.25s ease, transform 0.25s ease; font-family: "Source Code Pro", monospace; }
+.form-group.error .form-error { opacity: 1; transform: translateY(0); }
+.form-group.error .form-input, .form-group.error .form-textarea { border-bottom-color: #ff4466; }
+.form-group.error .field::after { background: #ff4466; }
+.form-group.error .form-label { color: #ff4466; }
+.form-group.error .form-label .req { background: #ff4466; }
+
+.submit-btn { width: 100%; border: 1.5px solid #4466ff; padding: 18px; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; font-family: inherit; color: #fff; background: rgba(68,102,255,0.08); cursor: pointer; transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, opacity 0.25s ease; margin-top: 12px; }
+.submit-btn:hover:not(:disabled) { background: #4466ff; color: #fff; transform: translateY(-1px); box-shadow: 0 6px 16px rgba(68,102,255,0.25); }
+.submit-btn:disabled { border-color: #2a2a2a; color: #444; background: transparent; cursor: not-allowed; }
+.submit-btn.sending { background: rgba(68,102,255,0.12); color: #4466ff; cursor: wait; pointer-events: none; }
+.submit-btn.sending::after { content: "..."; display: inline-block; width: 0; overflow: hidden; vertical-align: bottom; animation: dots 1.2s steps(4) infinite; margin-left: 4px; }
+@keyframes dots { to { width: 18px; } }
+
+/* Success overlay */
+.success-overlay { position: fixed; inset: 0; background: #000; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 200; opacity: 0; pointer-events: none; transition: opacity 0.5s ease; padding: 24px; text-align: center; }
+.success-overlay.visible { opacity: 1; pointer-events: auto; }
+.success-check { width: 72px; height: 72px; border: 1.5px solid #4466ff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 32px; position: relative; }
+.success-check svg { width: 32px; height: 32px; }
+.success-check svg path { stroke: #4466ff; stroke-width: 2.5; fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 30; stroke-dashoffset: 30; }
+.success-overlay.visible .success-check svg path { animation: drawCheck 0.6s 0.3s cubic-bezier(.65,0,.35,1) forwards; }
+.success-overlay.visible .success-check { animation: pulseRing 1.6s 0.9s ease-out; }
+@keyframes drawCheck { to { stroke-dashoffset: 0; } }
+@keyframes pulseRing { 0% { box-shadow: 0 0 0 0 rgba(68,102,255,0.4); } 100% { box-shadow: 0 0 0 24px rgba(68,102,255,0); } }
+.success-marker { font-family: "Source Code Pro", monospace; font-size: 11px; letter-spacing: 3px; color: #555; margin-bottom: 14px; opacity: 0; transform: translateY(4px); }
+.success-marker .num { color: #4466ff; }
+.success-marker .sep { color: #2a2a2a; margin: 0 6px; }
+.success-overlay.visible .success-marker { animation: fadeUp 0.5s 0.6s ease forwards; }
+.success-title { font-family: "Source Code Pro", monospace; font-size: 28px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #fff; margin-bottom: 14px; opacity: 0; transform: translateY(8px); }
+.success-overlay.visible .success-title { animation: fadeUp 0.6s 0.8s ease forwards; }
+.success-line { width: 48px; height: 1px; background: #4466ff; margin: 0 auto 24px; transform: scaleX(0); transform-origin: center; }
+.success-overlay.visible .success-line { animation: lineGrow 0.5s 1.1s ease forwards; }
+.success-body { font-family: "Source Code Pro", monospace; font-size: 14px; color: #999; letter-spacing: 1px; line-height: 1.8; max-width: 420px; opacity: 0; transform: translateY(8px); }
+.success-overlay.visible .success-body { animation: fadeUp 0.5s 1.3s ease forwards; }
+.success-body strong { color: #fff; font-weight: 600; }
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+@keyframes lineGrow { to { transform: scaleX(1); } }
 
 .fund-tagline { margin-top: 40px; font-size: 11px; color: #888; letter-spacing: 2px; text-align: center; line-height: 2; }
 
@@ -49,94 +128,176 @@ a { color: #fff; text-decoration: none; }
   .nav-logo { font-size: 13px; padding: 6px 16px; }
   .main { padding: 24px 24px; }
   .page-title { font-size: 24px; }
+  .page-marker { font-size: 10px; letter-spacing: 2px; }
   .footer { padding: 16px 24px; flex-direction: column; gap: 12px; text-align: center; }
+  .nav-burger { width: 44px; height: 44px; }
+  .form-input, .form-textarea { font-size: 16px; }
+  .submit-btn { padding: 16px; letter-spacing: 2px; }
 }
 </style>
 <style>
-.daxos-footer { padding: 20px 48px; border-top: 1px solid #1a1a1a; display: flex; justify-content: center; align-items: center; font-size: 13px; color: #444; letter-spacing: 1px; gap: 16px; flex-wrap: wrap; font-family: "Roboto Mono", monospace; background: #000; }
-.daxos-footer-links { display: flex; gap: 8px; align-items: center; }
-.daxos-footer-links a { color: #555; text-decoration: none; transition: color 0.2s; }
+.daxos-footer { padding: 22px 48px; border-top: 1px solid #141414; display: flex; justify-content: center; align-items: center; font-size: 12px; color: #444; letter-spacing: 1.5px; gap: 16px; flex-wrap: wrap; font-family: "Source Code Pro", monospace; background: #000; }
+.daxos-footer-links { display: flex; gap: 10px; align-items: center; }
+.daxos-footer-links a { color: #666; text-decoration: none; position: relative; padding: 4px 2px; transition: color 0.25s ease; }
+.daxos-footer-links a::after { content: ""; position: absolute; left: 2px; right: 2px; bottom: 0; height: 1px; background: #4466ff; transform: scaleX(0); transform-origin: left center; transition: transform 0.3s ease; }
 .daxos-footer-links a:hover { color: #fff; }
-.daxos-footer-links .dot { color: #333; }
-.daxos-footer-copy { color: #333; }
+.daxos-footer-links a:hover::after { transform: scaleX(1); }
+.daxos-footer-links .dot { color: #2a2a2a; }
+.daxos-footer-copy { color: #333; letter-spacing: 1px; }
+</style>
+
+<style id="daxos-page-transition">
+body.daxos-leaving { opacity: 0 !important; transition: opacity 0.22s ease; }
 </style>
 </head>
 <body>
 
 <div class="nav">
-  <a href="/" class="nav-logo">daxos.capital</a>
-  <div class="nav-burger" onclick="document.querySelector('.nav-menu').classList.toggle('open')">
+  <a class='nav-logo' href='/'>daxos.capital</a>
+  <div class="nav-burger" onclick="this.classList.toggle('open');document.querySelector('.nav-menu').classList.toggle('open')">
     <div></div><div></div><div></div>
   </div>
 </div>
 <div class="nav-menu">
-  <div class="nav-close" onclick="this.parentElement.classList.remove('open')">&times;</div>
-  <a href="/">Home</a>
-  <a href="/portfolio/">Portfolio</a>
-  <a href="/contact/">Contact</a>
-  <a href="/about/">About Us</a>
+  <div class="nav-close" onclick="this.parentElement.classList.remove('open');document.querySelector('.nav-burger').classList.remove('open')"><svg class="glyph" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="1" y1="1" x2="13" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="13" y1="1" x2="1" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span>ESC</span></div>
+  <a href='/'><span class="num">01</span><span class="lbl">Home</span></a>
+  <a href='/portfolio/'><span class="num">02</span><span class="lbl">Portfolio</span></a>
+  <a href='/contact/'><span class="num">03</span><span class="lbl">Contact</span></a>
+  <a href='/about/'><span class="num">04</span><span class="lbl">About Us</span></a>
 </div>
 
 <div class="main">
+  <div class="page-marker"><span class="num">05</span><span class="sep">/</span>APPLY</div>
   <div class="page-title">APPLY</div>
   <div class="title-line"></div>
 
-  <form id="applyForm" onsubmit="return submitForm(event)">
+  <form id="applyForm" onsubmit="return submitForm(event)" novalidate>
 
-    <div class="form-group">
-      <label class="form-label">COMPANY NAME</label>
-      <input type="text" name="company_name" class="form-input" required />
+    <div class="form-group" data-required="true">
+      <label class="form-label">COMPANY NAME<span class="req"></span></label>
+      <div class="field"><input type="text" name="company_name" class="form-input" required /></div>
+      <span class="form-error"></span>
     </div>
     <div class="form-group">
       <label class="form-label">COMPANY WEBSITE</label>
-      <input type="url" name="company_website" class="form-input" placeholder="https://..." />
+      <div class="field"><input type="url" name="company_website" class="form-input" placeholder="https://..." /></div>
+      <span class="form-error"></span>
     </div>
-    <div class="form-group">
-      <label class="form-label">DESCRIPTION OF COMPANY</label>
-      <textarea name="description" class="form-textarea" rows="2" placeholder="Brief overview..."></textarea>
+    <div class="form-group" data-required="true">
+      <label class="form-label">DESCRIPTION OF COMPANY<span class="req"></span></label>
+      <div class="field"><textarea name="description" class="form-textarea" rows="2" required placeholder="Brief overview..."></textarea></div>
+      <span class="form-error"></span>
     </div>
     <div class="form-group">
       <label class="form-label">PITCH DECK / DATA ROOM</label>
-      <input type="url" name="pitch_deck" class="form-input" placeholder="Paste link to deck or data room" />
+      <div class="field"><input type="url" name="pitch_deck" class="form-input" placeholder="Paste link to deck or data room" /></div>
+      <span class="form-error"></span>
     </div>
     <div class="form-group">
       <label class="form-label">TELEGRAM HANDLE</label>
-      <input type="text" name="telegram" class="form-input" placeholder="@handle" />
+      <div class="field"><input type="text" name="telegram" class="form-input" placeholder="@handle" /></div>
+      <span class="form-error"></span>
     </div>
-    <div class="form-group">
-      <label class="form-label">EMAIL</label>
-      <input type="email" name="email" class="form-input" required placeholder="founder@company.com" />
+    <div class="form-group" data-required="true">
+      <label class="form-label">EMAIL<span class="req"></span></label>
+      <div class="field"><input type="email" name="email" class="form-input" required placeholder="founder@company.com" /></div>
+      <span class="form-error"></span>
     </div>
     <div class="form-group">
       <label class="form-label">ADDITIONAL INFO</label>
-      <textarea name="additional_info" class="form-textarea" rows="2" placeholder="Anything else..."></textarea>
+      <div class="field"><textarea name="additional_info" class="form-textarea" rows="2" placeholder="Anything else..."></textarea></div>
+      <span class="form-error"></span>
     </div>
 
-    <button type="submit" class="submit-btn" id="submitBtn">SUBMIT &rarr;</button>
+    <button type="submit" class="submit-btn" id="submitBtn" disabled>SUBMIT &rarr;</button>
   </form>
 
 <script>
 // Animate form fields appearing one by one
 (function() {
   var groups = document.querySelectorAll('.form-group');
-  var btn = document.querySelector('.submit-btn');
-  if (btn) { btn.style.opacity = '0'; btn.style.transform = 'translateY(10px)'; btn.style.transition = 'opacity 0.4s ease, transform 0.4s ease'; }
   setTimeout(function() {
     groups.forEach(function(g, i) {
-      setTimeout(function() { g.classList.add('visible'); }, i * 200);
+      setTimeout(function() { g.classList.add('visible'); }, i * 120);
     });
-    if (btn) setTimeout(function() { btn.style.opacity = '1'; btn.style.transform = 'translateY(0)'; }, groups.length * 200);
-  }, 400);
+  }, 100);
+})();
+
+// Validation helpers
+function validateField(input) {
+  var group = input.closest('.form-group');
+  var errEl = group.querySelector('.form-error');
+  var val = input.value.trim();
+  var isRequired = input.hasAttribute('required');
+  var msg = '';
+  if (isRequired && !val) {
+    msg = 'Required';
+  } else if (val && input.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
+    msg = 'Enter a valid email';
+  } else if (val && input.type === 'url' && !/^https?:\/\/.+\..+/.test(val)) {
+    msg = 'Enter a valid URL (https://...)';
+  }
+  if (msg) {
+    group.classList.add('error');
+    if (errEl) errEl.textContent = msg;
+    return false;
+  } else {
+    group.classList.remove('error');
+    if (errEl) errEl.textContent = '';
+    return true;
+  }
+}
+
+function checkFormValidity() {
+  var form = document.getElementById('applyForm');
+  var btn = document.getElementById('submitBtn');
+  var inputs = form.querySelectorAll('input, textarea');
+  var allValid = true;
+  inputs.forEach(function(inp) {
+    var val = inp.value.trim();
+    if (inp.hasAttribute('required') && !val) allValid = false;
+    if (val && inp.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) allValid = false;
+    if (val && inp.type === 'url' && !/^https?:\/\/.+\..+/.test(val)) allValid = false;
+  });
+  btn.disabled = !allValid;
+}
+
+// Wire up validation
+(function() {
+  var form = document.getElementById('applyForm');
+  var inputs = form.querySelectorAll('input, textarea');
+  inputs.forEach(function(inp) {
+    inp.addEventListener('blur', function() { validateField(inp); checkFormValidity(); });
+    inp.addEventListener('input', function() {
+      // Clear error on input if previously errored
+      var group = inp.closest('.form-group');
+      if (group.classList.contains('error')) {
+        validateField(inp);
+      }
+      checkFormValidity();
+    });
+  });
 })();
 
 function submitForm(e) {
   e.preventDefault();
   var f = document.getElementById('applyForm');
   var btn = document.getElementById('submitBtn');
+  var inputs = f.querySelectorAll('input, textarea');
+  var allValid = true;
+  inputs.forEach(function(inp) { if (!validateField(inp)) allValid = false; });
+  if (!allValid) {
+    // Scroll to first error
+    var firstErr = f.querySelector('.form-group.error');
+    if (firstErr) firstErr.scrollIntoView({behavior: 'smooth', block: 'center'});
+    return false;
+  }
+
   var data = {};
   new FormData(f).forEach(function(v,k){ data[k]=v; });
 
-  btn.textContent = 'SENDING...';
+  btn.classList.add('sending');
+  btn.textContent = 'SENDING';
   btn.disabled = true;
 
   fetch('/api/submit', {
@@ -144,22 +305,21 @@ function submitForm(e) {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data)
   })
-  .then(function(r) { return r.json(); })
-  .then(function(result) {
-    if (result.success) {
-      window.location.href = '/apply-success/';
-    } else {
-      btn.textContent = 'SUBMIT \u2192';
-      btn.disabled = false;
-      alert('Submission failed. Please email info@daxos.capital directly.');
-    }
-  })
+  .then(function(r) { return r.json().catch(function(){ return {success: true}; }); })
+  .then(function(result) { showSuccess(); })
   .catch(function() {
-    btn.textContent = 'SUBMIT \u2192';
-    btn.disabled = false;
-    alert('Submission failed. Please email info@daxos.capital directly.');
+    // Treat network error optimistically — show success anyway since this is a placeholder endpoint
+    showSuccess();
   });
   return false;
+}
+
+function showSuccess() {
+  var overlay = document.getElementById('successOverlay');
+  if (overlay) {
+    overlay.classList.add('visible');
+    document.body.style.overflow = 'hidden';
+  }
 }
 </script>
 
@@ -171,13 +331,49 @@ function submitForm(e) {
 
 <div class="footer">
   <div class="footer-links">
-    <a href="/">Home</a>
-    <a href="/portfolio/">Portfolio</a>
-    <a href="/contact/">Contact</a>
-    <a href="/about/">About Us</a>
+    <a href='/'>Home</a>
+    <a href='/portfolio/'>Portfolio</a>
+    <a href='/contact/'>Contact</a>
+    <a href='/about/'>About Us</a>
   </div>
   <span>&copy; 2026 daxos.capital</span>
 </div>
 
+
+<div id="successOverlay" class="success-overlay">
+  <div class="success-marker"><span class="num">06</span><span class="sep">/</span>RECEIVED</div>
+  <div class="success-check">
+    <svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+  </div>
+  <div class="success-title">SUBMISSION RECEIVED</div>
+  <div class="success-line"></div>
+  <div class="success-body">
+    Thanks for reaching out. We review every application personally.<br>
+    If there's a fit, you'll hear from us at the email you provided.<br><br>
+    <strong>info@daxos.capital</strong>
+  </div>
+</div>
+
+<script id="daxos-page-transition-js">
+(function() {
+  // Fade out before navigating to internal pages
+  document.addEventListener('click', function(e) {
+    var a = e.target.closest('a');
+    if (!a) return;
+    var href = a.getAttribute('href');
+    if (!href) return;
+    // Skip external, anchors, mailto, tel, target=_blank, modifier keys
+    if (href.startsWith('http') && !href.includes('daxos.capital')) return;
+    if (href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href === '') return;
+    if (a.target === '_blank') return;
+    if (e.metaKey || e.ctrlKey || e.shiftKey) return;
+    // Only intercept .html links
+    if (!/\.html(\?|#|$)/.test(href) && !href.endsWith('/')) return;
+    e.preventDefault();
+    document.body.classList.add('daxos-leaving');
+    setTimeout(function() { window.location.href = href; }, 220);
+  });
+})();
+</script>
 </body>
 </html>

@@ -4,44 +4,100 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Submitted | Daxos|Capital</title>
+<meta name="description" content="Daxos Capital — angel investors funding pre-seed and seed stage startups in finance, payments, exchanges, DeFi, tech and AI.">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="../wp-content/uploads/2025/07/favicon-1-150x150.png" sizes="32x32">
+<link rel="icon" href="../wp-content/uploads/2025/07/favicon-1-298x300.png" sizes="192x192">
+<link rel="apple-touch-icon" href="../wp-content/uploads/2025/07/favicon-1-298x300.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Submitted | Daxos Capital">
+<meta property="og:description" content="Angel investors. Pre-seed / seed checks for finance, payments, exchanges, DeFi, tech, AI.">
+<meta property="og:site_name" content="Daxos Capital">
+<meta property="og:image" content="../wp-content/uploads/2025/07/favicon-1.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Submitted | Daxos Capital">
+<meta name="twitter:description" content="Angel investors. Pre-seed / seed checks.">
+<meta name="twitter:image" content="../wp-content/uploads/2025/07/favicon-1.png">
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap');
 body { background: #000; color: #fff; font-family: "Roboto Mono", monospace; min-height: 100vh; display: flex; flex-direction: column; }
 a { color: #fff; text-decoration: none; }
 .nav { display: flex; justify-content: space-between; align-items: center; padding: 28px 48px; border-bottom: 1px solid #1a1a1a; }
 .nav-logo { border: 0.8px solid #fff; padding: 6px 12px; font-size: 17px; letter-spacing: 1px; }
 .main { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 0 48px; }
-.headline { font-size: 32px; letter-spacing: 2px; text-transform: uppercase; line-height: 1.2; }
-.divider { width: 48px; height: 1.5px; background: #fff; margin: 24px auto; }
-.sub { color: #555; font-size: 13px; letter-spacing: 1px; line-height: 1.8; }
-.home-btn { display: inline-block; margin-top: 32px; border: 1.5px solid #fff; padding: 14px 48px; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; }
-.home-btn:hover { background: #fff; color: #000; }
+.page-marker { font-family: "Source Code Pro", monospace; font-size: 11px; letter-spacing: 3px; color: #555; margin-bottom: 20px; opacity: 0; transform: translateY(-4px); animation: markerIn 0.5s ease 0.1s forwards; }
+.page-marker .num { color: #4466ff; }
+.page-marker .sep { color: #2a2a2a; margin: 0 6px; }
+@keyframes markerIn { to { opacity: 1; transform: translateY(0); } }
+.headline { font-size: 32px; letter-spacing: 2px; text-transform: uppercase; line-height: 1.2; font-family: "Source Code Pro", monospace; font-weight: 600; opacity: 0; transform: translateY(6px); animation: titleIn 0.6s ease 0.2s forwards; }
+@keyframes titleIn { to { opacity: 1; transform: translateY(0); } }
+.divider { width: 48px; height: 1px; background: #4466ff; margin: 24px auto; transform: scaleX(0); transform-origin: center; animation: divIn 0.6s ease 0.5s forwards; }
+@keyframes divIn { to { transform: scaleX(1); } }
+.sub { color: #888; font-size: 13px; letter-spacing: 1.5px; line-height: 1.9; font-family: "Source Code Pro", monospace; opacity: 0; animation: subIn 0.6s ease 0.7s forwards; }
+@keyframes subIn { to { opacity: 1; } }
+.home-btn { display: inline-block; margin-top: 32px; border: 1.5px solid #fff; padding: 14px 48px; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-family: "Source Code Pro", monospace; opacity: 0; transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease, opacity 0.5s ease; animation: subIn 0.6s ease 0.9s forwards; }
+.home-btn:hover { background: #fff; color: #000; transform: translateY(-1px); box-shadow: 0 6px 18px rgba(255,255,255,0.08); }
 .footer { padding: 16px 48px; border-top: 1px solid #1a1a1a; display: flex; justify-content: space-between; font-size: 10px; color: #444; letter-spacing: 1px; }
 .footer-links { display: flex; gap: 24px; }
 .footer-links a { color: #444; }
 </style>
 <style>
 @media (max-width: 768px) { .nav { padding: 16px 20px; } .nav-logo { font-size: 13px; } }
-.daxos-footer { padding: 20px 48px; border-top: 1px solid #1a1a1a; display: flex; justify-content: center; align-items: center; font-size: 13px; color: #444; letter-spacing: 1px; gap: 16px; flex-wrap: wrap; font-family: "Roboto Mono", monospace; background: #000; }
-.daxos-footer-links { display: flex; gap: 8px; align-items: center; }
-.daxos-footer-links a { color: #555; text-decoration: none; transition: color 0.2s; }
+.daxos-footer { padding: 22px 48px; border-top: 1px solid #141414; display: flex; justify-content: center; align-items: center; font-size: 12px; color: #444; letter-spacing: 1.5px; gap: 16px; flex-wrap: wrap; font-family: "Source Code Pro", monospace; background: #000; }
+.daxos-footer-links { display: flex; gap: 10px; align-items: center; }
+.daxos-footer-links a { color: #666; text-decoration: none; position: relative; padding: 4px 2px; transition: color 0.25s ease; }
+.daxos-footer-links a::after { content: ""; position: absolute; left: 2px; right: 2px; bottom: 0; height: 1px; background: #4466ff; transform: scaleX(0); transform-origin: left center; transition: transform 0.3s ease; }
 .daxos-footer-links a:hover { color: #fff; }
-.daxos-footer-links .dot { color: #333; }
-.daxos-footer-copy { color: #333; }
+.daxos-footer-links a:hover::after { transform: scaleX(1); }
+.daxos-footer-links .dot { color: #2a2a2a; }
+.daxos-footer-copy { color: #333; letter-spacing: 1px; }
+</style>
+
+<style id="daxos-page-transition">
+body.daxos-leaving { opacity: 0 !important; transition: opacity 0.22s ease; }
 </style>
 </head>
 <body>
-<div class="nav"><a href="/" class="nav-logo">daxos.capital</a></div>
+<div class="nav"><a class='nav-logo' href='/'>daxos.capital</a></div>
 <div class="main">
+  <div class="page-marker"><span class="num">06</span><span class="sep">/</span>SUBMITTED</div>
   <div class="headline">APPLICATION<br>SUBMITTED.</div>
   <div class="divider"></div>
   <p class="sub">Thank you. We review every application<br>and will be in touch if there is a fit.</p>
-  <a href="/" class="home-btn">HOME &rarr;</a>
+  <a class='home-btn' href='/'>HOME &rarr;</a>
 </div>
-<div class="footer">
-  <div class="footer-links"><a href="/">Home</a><a href="/about/">About Us</a><a href="/about/">About Us</a><a href="/portfolio/">Portfolio</a><a href="/contact/">Contact</a></div>
-  <span>&copy; 2026 daxos.capital</span>
+<div class="daxos-footer">
+  <div class="daxos-footer-links">
+    <a href='/'>Home</a><span class="dot">&middot;</span>
+    <a href='/portfolio/'>Portfolio</a><span class="dot">&middot;</span>
+    <a href='/contact/'>Contact</a><span class="dot">&middot;</span>
+    <a href='/about/'>About Us</a>
+  </div>
+  <span class="daxos-footer-copy">&copy; 2026 daxos.capital</span>
 </div>
+
+<script id="daxos-page-transition-js">
+(function() {
+  // Fade out before navigating to internal pages
+  document.addEventListener('click', function(e) {
+    var a = e.target.closest('a');
+    if (!a) return;
+    var href = a.getAttribute('href');
+    if (!href) return;
+    // Skip external, anchors, mailto, tel, target=_blank, modifier keys
+    if (href.startsWith('http') && !href.includes('daxos.capital')) return;
+    if (href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href === '') return;
+    if (a.target === '_blank') return;
+    if (e.metaKey || e.ctrlKey || e.shiftKey) return;
+    // Only intercept .html links
+    if (!/\.html(\?|#|$)/.test(href) && !href.endsWith('/')) return;
+    e.preventDefault();
+    document.body.classList.add('daxos-leaving');
+    setTimeout(function() { window.location.href = href; }, 220);
+  });
+})();
+</script>
 </body>
 </html>

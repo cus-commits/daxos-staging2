@@ -4,6 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact | Daxos|Capital</title>
+<meta name="description" content="Daxos Capital — angel investors funding pre-seed and seed stage startups in finance, payments, exchanges, DeFi, tech and AI.">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="../wp-content/uploads/2025/07/favicon-1-150x150.png" sizes="32x32">
+<link rel="icon" href="../wp-content/uploads/2025/07/favicon-1-298x300.png" sizes="192x192">
+<link rel="apple-touch-icon" href="../wp-content/uploads/2025/07/favicon-1-298x300.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Contact | Daxos Capital">
+<meta property="og:description" content="Angel investors. Pre-seed / seed checks for finance, payments, exchanges, DeFi, tech, AI.">
+<meta property="og:site_name" content="Daxos Capital">
+<meta property="og:image" content="../wp-content/uploads/2025/07/favicon-1.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Contact | Daxos Capital">
+<meta name="twitter:description" content="Angel investors. Pre-seed / seed checks.">
+<meta name="twitter:image" content="../wp-content/uploads/2025/07/favicon-1.png">
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;700&display=swap');
@@ -13,42 +27,64 @@ a { color: #fff; text-decoration: none; }
 
 .nav { display: flex; justify-content: space-between; align-items: center; padding: 14px 48px; border-bottom: 1px solid #1a1a1a; }
 .nav-logo { border: 0.8px solid #fff; padding: 6px 12px; font-size: 17px; letter-spacing: 1px; }
-.nav-burger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; }
-.nav-burger div { width: 24px; height: 1.5px; background: #fff; }
-.nav-menu { display: none; position: fixed; inset: 0; background: #000; z-index: 100; flex-direction: column; align-items: center; justify-content: center; }
+.nav-burger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; position: relative; width: 36px; height: 32px; box-sizing: border-box; align-items: center; justify-content: center; }
+.nav-burger div { width: 24px; height: 1.5px; background: #fff; transition: transform 0.35s cubic-bezier(.7,0,.3,1), opacity 0.2s ease; transform-origin: center; position: absolute; }
+.nav-burger div:nth-child(1) { transform: translateY(-7px); }
+.nav-burger div:nth-child(2) { transform: translateY(0); }
+.nav-burger div:nth-child(3) { transform: translateY(7px); }
+.nav-burger.open div:nth-child(1) { transform: translateY(0) rotate(45deg); }
+.nav-burger.open div:nth-child(2) { opacity: 0; transform: translateX(-8px); }
+.nav-burger.open div:nth-child(3) { transform: translateY(0) rotate(-45deg); }
+.nav-menu { display: none; position: fixed; inset: 0; z-index: 100; flex-direction: column; align-items: center; justify-content: center; background: radial-gradient(ellipse at center, #050505 0%, #000 70%); }
 .nav-menu.open { display: flex; }
-.nav-menu a { display: block; padding: 18px 32px; font-size: 18px; letter-spacing: 3px; text-transform: uppercase; color: #888; text-decoration: none; transition: color 0.2s; }
-.nav-menu a:hover, .nav-menu a.active { color: #fff; }
-.nav-close { position: absolute; top: 28px; right: 48px; font-size: 28px; cursor: pointer; color: #666; }
+.nav-menu a { position: relative; display: flex; align-items: center; gap: 18px; padding: 12px 0; font-size: 18px; letter-spacing: 2px; text-transform: uppercase; color: #888; font-family: "Source Code Pro", monospace; font-weight: 500; text-decoration: none; transition: color 0.2s ease; }
+.nav-menu a:hover { color: #fff; }
+.nav-menu a:hover .num { color: #4466ff; opacity: 1; }
+.nav-menu a:hover .lbl::after, .nav-menu a.active .lbl::after { width: 12px; }
+.nav-menu a.active { color: #fff; }
+.nav-menu a.active .num { color: #4466ff; opacity: 1; }
+.nav-menu a .num { font-size: 11px; color: #444; font-family: "Source Code Pro", monospace; font-weight: 400; letter-spacing: 1px; opacity: 0.6; transition: opacity 0.2s, color 0.2s; }
+.nav-menu a .lbl { position: relative; }
+.nav-menu a .lbl::after { content: ""; position: absolute; right: -14px; top: 50%; width: 0; height: 1px; background: #4466ff; transition: width 0.25s ease; }
+.nav-close { position: absolute; top: 16px; right: 32px; font-size: 11px; letter-spacing: 2px; font-family: "Source Code Pro", monospace; cursor: pointer; color: #555; transition: color 0.25s ease; display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px; }
+.nav-close .glyph { display: inline-block; transition: transform 0.4s cubic-bezier(.7,0,.3,1); }
+.nav-close:hover { color: #fff; }
+.nav-close:hover .glyph { transform: rotate(90deg); }
 
-.main { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 48px; text-align: center; }
+.main { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 48px; text-align: center; position: relative; }
+.page-marker { position: absolute; top: 32px; left: 48px; font-family: "Source Code Pro", monospace; font-size: 11px; letter-spacing: 3px; color: #555; }
+.page-marker .num { color: #4466ff; }
+.page-marker .sep { color: #2a2a2a; margin: 0 6px; }
+@keyframes markerIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
 
 .typed-line { font-family: "Source Code Pro", monospace; font-size: 52px; letter-spacing: 2px; text-transform: uppercase; line-height: 1.3; font-weight: 600; min-height: 1.2em; width: 100%; text-align: center; }
-.typed-line .word { opacity: 0; display: inline; transition: opacity 0.12s ease; }
+.typed-line .word { opacity: 0; display: inline; transition: opacity 0.08s ease; }
 .typed-line .word.visible { opacity: 1; }
 #line3 .word.visible { color: #3355dd; }
 
 .divider { width: 48px; height: 1.5px; background: #fff; margin: 32px auto; opacity: 0; transition: opacity 0.5s ease; }
 .divider.visible { opacity: 1; }
 
-.apply-btn { display: inline-block; border: 1.5px solid #fff; padding: 18px 72px; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; font-family: "Source Code Pro", monospace; color: #fff; text-decoration: none; transition: all 0.3s; background: transparent; cursor: pointer; opacity: 0; transition: opacity 0.5s ease, background 0.3s, color 0.3s; }
+.apply-btn { display: inline-block; border: 1.5px solid #fff; padding: 18px 72px; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; font-family: "Source Code Pro", monospace; color: #fff; text-decoration: none; background: transparent; cursor: pointer; opacity: 0; transition: opacity 0.5s ease, background 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease; }
 .apply-btn.visible { opacity: 1; }
-.apply-btn:hover { background: #fff; color: #000; }
+.apply-btn:hover { background: #fff; color: #000; transform: translateY(-1px); box-shadow: 0 6px 18px rgba(255,255,255,0.08); }
 
 .fund-info { margin-top: 48px; text-align: center; font-family: "Source Code Pro", monospace; }
 .fund-line { font-size: 13px; color: #999; letter-spacing: 2px; line-height: 2.2; min-height: 1.2em; width: 100%; text-align: center; }
 .fund-line .ch { opacity: 0; display: inline; transition: opacity 0.15s ease; }
 .fund-line .ch.visible { opacity: 1; }
 
-.typed-cursor { display: inline-block; width: 2px; height: 1.1em; background: #4466ff; vertical-align: text-bottom; animation: blink 0.8s infinite; margin-left: 2px; }
+.typed-cursor { display: inline-block; width: 2px; height: 1.1em; background: #4466ff; vertical-align: text-bottom; animation: blink 1s infinite; margin-left: 2px; }
 @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
 
-.daxos-footer { padding: 20px 48px; border-top: 1px solid #1a1a1a; display: flex; justify-content: center; align-items: center; font-size: 13px; color: #444; letter-spacing: 1px; gap: 16px; flex-wrap: wrap; background: #000; }
-.daxos-footer-links { display: flex; gap: 8px; align-items: center; }
-.daxos-footer-links a { color: #555; text-decoration: none; transition: color 0.2s; }
+.daxos-footer { padding: 22px 48px; border-top: 1px solid #141414; display: flex; justify-content: center; align-items: center; font-size: 12px; color: #444; letter-spacing: 1.5px; gap: 16px; flex-wrap: wrap; background: #000; font-family: "Source Code Pro", monospace; }
+.daxos-footer-links { display: flex; gap: 10px; align-items: center; }
+.daxos-footer-links a { color: #666; text-decoration: none; position: relative; padding: 4px 2px; transition: color 0.25s ease; }
+.daxos-footer-links a::after { content: ""; position: absolute; left: 2px; right: 2px; bottom: 0; height: 1px; background: #4466ff; transform: scaleX(0); transform-origin: left center; transition: transform 0.3s ease; }
 .daxos-footer-links a:hover { color: #fff; }
-.daxos-footer-links .dot { color: #333; }
-.daxos-footer-copy { color: #333; }
+.daxos-footer-links a:hover::after { transform: scaleX(1); }
+.daxos-footer-links .dot { color: #2a2a2a; }
+.daxos-footer-copy { color: #333; letter-spacing: 1px; }
 
 @media (max-width: 768px) {
   .nav { padding: 8px 20px; }
@@ -56,34 +92,42 @@ a { color: #fff; text-decoration: none; }
   .nav-logo { font-size: 13px; padding: 6px 16px; }
   .typed-line { font-size: 32px; }
   .main { padding: 0 24px; }
+  .page-marker { top: 20px; left: 24px; font-size: 10px; letter-spacing: 2px; }
   .fund-info { font-size: 11px; }
   .daxos-footer { padding: 16px 24px; }
+  .nav-burger { width: 44px; height: 44px; }
+  .apply-btn { padding: 16px 48px; }
 }
+</style>
+
+<style id="daxos-page-transition">
+body.daxos-leaving { opacity: 0 !important; transition: opacity 0.22s ease; }
 </style>
 </head>
 <body>
 
 <div class="nav">
-  <a href="/" class="nav-logo">daxos.capital</a>
-  <div class="nav-burger" onclick="document.querySelector('.nav-menu').classList.toggle('open')">
+  <a class='nav-logo' href='/'>daxos.capital</a>
+  <div class="nav-burger" onclick="this.classList.toggle('open');document.querySelector('.nav-menu').classList.toggle('open')">
     <div></div><div></div><div></div>
   </div>
 </div>
+
 <div class="nav-menu">
-  <div class="nav-close" onclick="this.parentElement.classList.remove('open')">&times;</div>
-  <a href="/">Home</a>
-  <a href="/portfolio/">Portfolio</a>
-  <a href="/contact/">Contact</a>
-  <a href="/about/">About Us</a>
-</div>
+  <div class="nav-close" onclick="this.parentElement.classList.remove('open');document.querySelector('.nav-burger').classList.remove('open')"><svg class="glyph" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="1" y1="1" x2="13" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="13" y1="1" x2="1" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span>ESC</span></div>
+  <a href='/'><span class="num">01</span><span class="lbl">Home</span></a>
+  <a href='/portfolio/'><span class="num">02</span><span class="lbl">Portfolio</span></a>
+  <a class='active' href='/contact/'><span class="num">03</span><span class="lbl">Contact</span></a>
+  <a href='/about/'><span class="num">04</span><span class="lbl">About Us</span></a>
 </div>
 
 <div class="main">
+  <div class="page-marker"><span class="num">03</span><span class="sep">/</span>CONTACT</div>
   <div class="typed-line" id="line1"></div>
   <div class="typed-line" id="line2"></div>
   <div class="typed-line" id="line3"></div>
   <div class="divider" id="divider"></div>
-  <a href="/apply/" class="apply-btn" id="applyBtn">APPLY &rarr;</a>
+  <a class='apply-btn' href='/apply/' id='applyBtn'>APPLY &rarr;</a>
   <div class="fund-info">
     <div class="fund-line" id="f1"></div>
     <div class="fund-line" id="f2"></div>
@@ -95,10 +139,10 @@ a { color: #fff; text-decoration: none; }
 
 <div class="daxos-footer">
   <div class="daxos-footer-links">
-    <a href="/">Home</a><span class="dot">&middot;</span>
-    <a href="/portfolio/">Portfolio</a><span class="dot">&middot;</span>
-    <a href="/contact/">Contact</a><span class="dot">&middot;</span>
-    <a href="/about/">About Us</a>
+    <a href='/'>Home</a><span class="dot">&middot;</span>
+    <a href='/portfolio/'>Portfolio</a><span class="dot">&middot;</span>
+    <a href='/contact/'>Contact</a><span class="dot">&middot;</span>
+    <a href='/about/'>About Us</a>
   </div>
   <span class="daxos-footer-copy">&copy; 2026 daxos.capital</span>
 </div>
@@ -184,5 +228,27 @@ a { color: #fff; text-decoration: none; }
 })();
 </script>
 
+
+<script id="daxos-page-transition-js">
+(function() {
+  // Fade out before navigating to internal pages
+  document.addEventListener('click', function(e) {
+    var a = e.target.closest('a');
+    if (!a) return;
+    var href = a.getAttribute('href');
+    if (!href) return;
+    // Skip external, anchors, mailto, tel, target=_blank, modifier keys
+    if (href.startsWith('http') && !href.includes('daxos.capital')) return;
+    if (href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href === '') return;
+    if (a.target === '_blank') return;
+    if (e.metaKey || e.ctrlKey || e.shiftKey) return;
+    // Only intercept .html links
+    if (!/\.html(\?|#|$)/.test(href) && !href.endsWith('/')) return;
+    e.preventDefault();
+    document.body.classList.add('daxos-leaving');
+    setTimeout(function() { window.location.href = href; }, 220);
+  });
+})();
+</script>
 </body>
 </html>
